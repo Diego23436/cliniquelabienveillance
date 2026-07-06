@@ -1,0 +1,76 @@
+// Central bilingual dictionary.
+// Add new keys here as pages are built — keep FR and EN in sync.
+// Usage in a component: const { t } = useLanguage(); t('nav.home')
+
+export const translations = {
+  fr: {
+    'nav.home': 'Accueil',
+    'nav.about': 'À Propos',
+    'nav.about.clinic': 'Notre Clinique',
+    'nav.about.team': 'Notre Équipe',
+    'nav.services': 'Nos Services',
+    'nav.services.overview': "Vue d'Ensemble",
+    'nav.services.conditions': 'Pathologies Traitées',
+    'nav.services.prevention': 'Prévention & Dépistage',
+    'nav.resources': 'Ressources',
+    'nav.resources.blog': 'Blog / Articles Santé',
+    'nav.resources.faq': 'FAQ',
+    'nav.testimonials': 'Témoignages & Galerie',
+    'nav.testimonials.reviews': 'Témoignages Patients',
+    'nav.testimonials.gallery': 'Galerie Photo / Vidéo',
+    'nav.contact': 'Contact & Rendez-vous',
+    'nav.contact.booking': 'Prendre Rendez-vous',
+    'nav.contact.coordinates': 'Nos Coordonnées',
+    'nav.bookNow': 'Rendez-vous',
+
+    'footer.tagline': 'Votre santé, notre priorité — 24h/24.',
+    'footer.quicklinks': 'Liens Rapides',
+    'footer.contact': 'Contact',
+    'footer.hours': 'Horaires',
+    'footer.hours.value': 'Ouvert 24h/24, 7j/7',
+    'footer.rights': 'Tous droits réservés.',
+    'footer.address1.label': 'Site Principal',
+    'footer.address2.label': 'Second Site',
+    'footer.address2.value': 'Adresse à définir',
+
+    'placeholder.title': 'Page en construction',
+    'placeholder.body': 'Cette page fait partie de la structure du site et sera complétée prochainement par notre équipe.',
+
+    'lang.switch': 'EN',
+  },
+  en: {
+    'nav.home': 'Home',
+    'nav.about': 'About Us',
+    'nav.about.clinic': 'Our Clinic',
+    'nav.about.team': 'Our Team',
+    'nav.services': 'Our Services',
+    'nav.services.overview': 'Overview',
+    'nav.services.conditions': 'Conditions Treated',
+    'nav.services.prevention': 'Prevention & Screening',
+    'nav.resources': 'Resources',
+    'nav.resources.blog': 'Blog / Health Articles',
+    'nav.resources.faq': 'FAQ',
+    'nav.testimonials': 'Testimonials & Gallery',
+    'nav.testimonials.reviews': 'Patient Testimonials',
+    'nav.testimonials.gallery': 'Photo / Video Gallery',
+    'nav.contact': 'Contact & Appointments',
+    'nav.contact.booking': 'Book an Appointment',
+    'nav.contact.coordinates': 'Our Locations',
+    'nav.bookNow': 'Book Now',
+
+    'footer.tagline': 'Your health, our priority — 24/7.',
+    'footer.quicklinks': 'Quick Links',
+    'footer.contact': 'Contact',
+    'footer.hours': 'Hours',
+    'footer.hours.value': 'Open 24 hours, every day',
+    'footer.rights': 'All rights reserved.',
+    'footer.address1.label': 'Main Location',
+    'footer.address2.label': 'Second Location',
+    'footer.address2.value': 'Address to be confirmed',
+
+    'placeholder.title': 'Page under construction',
+    'placeholder.body': 'This page is part of the site structure and will be completed soon by our team.',
+
+    'lang.switch': 'FR',
+  },
+};

@@ -1,0 +1,164 @@
+/* =========================================================
+   CLINIQUE LA BIENVEILLANCE — Design Tokens
+   Palette derived from the official logo (blue / green / white).
+   Do not add new colors here without discussing with the team —
+   every page should draw only from these variables.
+   ========================================================= */
+
+:root {
+  /* --- Brand colors (from logo) --- */
+  --color-blue: #145DA0;        /* primary — nav, links, headings accents */
+  --color-blue-dark: #0B3D66;   /* deep blue — header bg, footer bg */
+  --color-blue-soft: #E4EEF7;   /* pale blue — section backgrounds */
+
+  --color-green: #1F9D55;       /* secondary — CTAs, highlights */
+  --color-green-dark: #146B3D;  /* hover states on green */
+  --color-green-soft: #E7F5EC;  /* pale green — alt section backgrounds */
+
+  --color-white: #FFFFFF;
+  --color-off-white: #F7FAF9;   /* warm white — page background */
+  --color-ink: #10242E;         /* near-black blue-slate — body text */
+  --color-ink-soft: #4A6470;    /* secondary text */
+  --color-border: #DCE7E4;
+
+  /* --- Type scale --- */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Karla', 'Segoe UI', sans-serif;
+
+  --fs-hero: clamp(2.2rem, 4vw + 1rem, 3.6rem);
+  --fs-h1: clamp(1.9rem, 2.5vw + 1rem, 2.6rem);
+  --fs-h2: clamp(1.5rem, 1.5vw + 1rem, 2rem);
+  --fs-h3: 1.25rem;
+  --fs-body: 1.05rem;
+  --fs-small: 0.9rem;
+
+  /* --- Spacing / layout --- */
+  --radius-s: 8px;
+  --radius-m: 14px;
+  --radius-l: 28px;
+  --shadow-soft: 0 8px 24px rgba(11, 61, 102, 0.08);
+  --max-width: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-off-white);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-blue-dark);
+  margin: 0 0 0.6em 0;
+}
+
+p {
+  margin: 0 0 1em 0;
+}
+
+a {
+  color: var(--color-blue);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Reusable button styles — shared across pages */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: var(--radius-s);
+  border: none;
+  font-weight: 600;
+  font-size: 0.98rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--color-green);
+  color: var(--color-white);
+}
+.btn-primary:hover {
+  background: var(--color-green-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-white);
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+}
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-green);
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Shared placeholder style for stub pages, used by PageShell */
+.page-placeholder {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 24px;
+  background: var(--color-blue-soft);
+  border-radius: var(--radius-m);
+  margin: 40px auto;
+  max-width: var(--max-width);
+}
+.page-placeholder span {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+.page-placeholder p {
+  color: var(--color-ink-soft);
+  max-width: 480px;
+}
