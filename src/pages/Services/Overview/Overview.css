@@ -1,1 +1,321 @@
-/* Styles for the Overview page — safe to edit, isolated from other pages. */
+/* ===== Hero (banner image) ===== */
+.overview-hero {
+  position: relative;
+  background-color: var(--color-blue-dark);
+  background-size: cover;
+  background-position: center;
+  padding: 96px 24px 64px;
+  text-align: center;
+  overflow: hidden;
+}
+.overview-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 61, 102, 0.9) 0%,
+    rgba(11, 61, 102, 0.82) 55%,
+    rgba(11, 61, 102, 0.72) 100%
+  );
+}
+.overview-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+.overview-hero .breadcrumb {
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.overview-hero .breadcrumb a { color: rgba(255, 255, 255, 0.72); }
+.overview-hero .breadcrumb a:hover { color: var(--color-white); }
+.overview-hero .breadcrumb [aria-current='page'] { color: var(--color-white); }
+.overview-hero .eyebrow { color: var(--color-green); }
+.overview-hero h1 {
+  color: var(--color-white);
+  font-size: var(--fs-hero);
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.overview-intro {
+  max-width: 640px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.05rem;
+}
+
+/* Breadcrumb (page-scoped, shared visual pattern with Equipe) */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+}
+
+/* ===== Core services grid ===== */
+.ov-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.ov-service-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-m);
+  padding: 32px 26px;
+  box-shadow: 0 4px 14px rgba(11, 61, 102, 0.06);
+  opacity: 0;
+  transform: translateY(20px) scale(0.97);
+  animation: ov-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.ov-service-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 20px 40px rgba(11, 61, 102, 0.16);
+  border-color: var(--color-green);
+}
+@keyframes ov-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.ov-service-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 18px;
+  border-radius: var(--radius-s);
+  background: var(--color-blue-soft);
+  color: var(--color-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+.ov-service-card:hover .ov-service-icon {
+  background: var(--color-green);
+  color: var(--color-white);
+  transform: rotate(-6deg) scale(1.08);
+}
+.ov-service-icon svg { width: 26px; height: 26px; }
+.ov-service-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.ov-service-card p {
+  font-size: 0.94rem;
+  color: var(--color-ink-soft);
+  margin: 0 0 18px 0;
+}
+.ov-know-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-blue);
+  transition: color 0.15s ease, gap 0.15s ease;
+}
+.ov-know-more:hover {
+  color: var(--color-green-dark);
+  gap: 11px;
+}
+
+/* ===== Process track (real sequence -> numbered) ===== */
+.process-band {
+  background: var(--color-off-white);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 72px 24px;
+}
+.process-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.process-track::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 6%;
+  right: 6%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-green) 0px,
+    var(--color-green) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  z-index: 0;
+}
+.process-step {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: ov-in 0.5s ease forwards;
+}
+.process-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-green);
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 14px;
+}
+.process-step h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+.process-step p {
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+/* ===== Explore tiles ===== */
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.explore-tile {
+  display: block;
+  border-radius: var(--radius-l);
+  padding: 40px 32px;
+  color: var(--color-white);
+  box-shadow: 0 10px 24px rgba(11, 61, 102, 0.14);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.explore-tile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 40px rgba(11, 61, 102, 0.22);
+}
+.explore-tile-blue {
+  background: linear-gradient(150deg, var(--color-blue-dark) 0%, var(--color-blue) 100%);
+}
+.explore-tile-green {
+  background: linear-gradient(150deg, var(--color-green-dark) 0%, var(--color-green) 100%);
+}
+.explore-tile h3 {
+  color: var(--color-white);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+.explore-tile p {
+  color: rgba(255, 255, 255, 0.86);
+  margin: 0 0 20px 0;
+}
+.explore-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.94rem;
+}
+.explore-tile svg { transition: transform 0.15s ease; }
+.explore-tile:hover svg { transform: translateX(3px); }
+
+/* ===== Service detail modal ===== */
+.ov-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 61, 102, 0.55);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 100;
+  animation: ov-overlay-in 0.2s ease forwards;
+}
+@keyframes ov-overlay-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.ov-modal {
+  position: relative;
+  background: var(--color-white);
+  border-radius: var(--radius-l);
+  padding: 44px 36px 36px;
+  max-width: 520px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 60px rgba(11, 61, 102, 0.3);
+  transform: translateY(10px) scale(0.97);
+  opacity: 0;
+  animation: ov-modal-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes ov-modal-in {
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+.ov-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-blue-soft);
+  color: var(--color-blue-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.ov-modal-close:hover {
+  background: var(--color-green-soft);
+  transform: rotate(90deg);
+}
+.ov-modal-icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 18px;
+  border-radius: var(--radius-s);
+  background: var(--color-green-soft);
+  color: var(--color-green-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ov-modal-icon svg { width: 26px; height: 26px; }
+.ov-modal h3 {
+  font-size: 1.35rem;
+  margin-bottom: 14px;
+}
+.ov-modal p {
+  color: var(--color-ink-soft);
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .ov-services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .overview-hero { padding: 84px 20px 56px; }
+  .process-track { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
+  .process-track::before { display: none; }
+  .explore-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .overview-hero { padding: 72px 18px 48px; }
+  .overview-hero h1 { font-size: 2rem; }
+  .ov-services-grid { grid-template-columns: 1fr; }
+  .process-track { grid-template-columns: 1fr; }
+  .explore-tile { padding: 30px 22px; }
+  .ov-modal { padding: 36px 22px 28px; }
+}

@@ -1,1 +1,336 @@
-/* Styles for the Equipe page — safe to edit, isolated from other pages. */
+/* ===== Hero (banner image) ===== */
+.team-hero {
+  position: relative;
+  background-color: var(--color-blue-dark);
+  background-size: cover;
+  background-position: center;
+  padding: 100px 24px 56px;
+  overflow: hidden;
+}
+.team-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(11, 61, 102, 0.94) 0%,
+    rgba(11, 61, 102, 0.86) 32%,
+    rgba(11, 61, 102, 0.55) 60%,
+    rgba(11, 61, 102, 0.25) 100%
+  );
+}
+.team-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+.breadcrumb a {
+  color: rgba(255, 255, 255, 0.7);
+}
+.breadcrumb a:hover {
+  color: var(--color-white);
+}
+.breadcrumb [aria-current='page'] {
+  color: var(--color-white);
+  font-weight: 600;
+}
+.team-hero h1 {
+  color: var(--color-white);
+  font-size: var(--fs-hero);
+  margin-bottom: 14px;
+}
+.team-tagline {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-white);
+  border-left: 3px solid var(--color-green);
+  padding-left: 14px;
+  margin-bottom: 18px;
+}
+.team-intro {
+  max-width: 560px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 9px 18px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--color-white);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-green);
+  box-shadow: 0 0 0 0 rgba(31, 157, 85, 0.55);
+  animation: live-pulse 2.2s ease-out infinite;
+  flex-shrink: 0;
+}
+@keyframes live-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(31, 157, 85, 0.55); }
+  70%  { box-shadow: 0 0 0 8px rgba(31, 157, 85, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(31, 157, 85, 0); }
+}
+
+/* ===== Filter section spacing ===== */
+.team-filter-section {
+  padding-top: 56px;
+}
+
+/* ===== Department filter ===== */
+.dept-filter-wrap {
+  margin-bottom: 44px;
+}
+.dept-filter-toggle {
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-s);
+  padding: 13px 18px;
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--color-blue-dark);
+}
+.dept-filter-toggle svg {
+  transition: transform 0.2s ease;
+}
+.dept-filter-toggle svg.is-flipped {
+  transform: rotate(180deg);
+}
+.dept-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.dept-pill {
+  background: var(--color-white);
+  border: 1.5px solid var(--color-border);
+  color: var(--color-ink-soft);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 999px;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+.dept-pill:hover {
+  border-color: var(--color-blue);
+  color: var(--color-blue-dark);
+}
+.dept-pill.is-active {
+  background: var(--color-green);
+  border-color: var(--color-green);
+  color: var(--color-white);
+  transform: translateY(-1px);
+}
+
+/* ===== Team grid ===== */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.member-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-m);
+  padding: 28px 22px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: member-in 0.5s ease forwards;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.member-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+  border-color: var(--color-green);
+}
+@keyframes member-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.member-photo-wrap {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-green) 100%);
+}
+.member-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-white);
+  display: block;
+}
+.member-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+.member-role {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-green-dark);
+  margin-bottom: 12px;
+}
+.member-bio {
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+  margin: 0 0 18px 0;
+  min-height: 44px;
+}
+.member-social {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: var(--color-white);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.social-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+.social-phone { background: var(--color-blue); }
+.social-whatsapp { background: #25D366; }
+.social-facebook { background: #1877F2; }
+
+/* ===== Commitment band (lightened + separated) ===== */
+.commitment-band {
+  position: relative;
+  background: linear-gradient(180deg, var(--color-blue-soft) 0%, var(--color-green-soft) 100%);
+  padding: 72px 24px;
+  margin-top: 32px;
+  overflow: hidden;
+}
+.commitment-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(20, 93, 160, 0.05) 0px,
+    rgba(20, 93, 160, 0.05) 2px,
+    transparent 2px,
+    transparent 26px
+  );
+  pointer-events: none;
+}
+.commitment-band .section-title {
+  position: relative;
+  color: var(--color-blue-dark);
+}
+.commitment-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.commitment-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(20, 93, 160, 0.14);
+  border-radius: var(--radius-m);
+  padding: 28px 24px;
+}
+.commitment-card h3 {
+  color: var(--color-blue-dark);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.commitment-card p {
+  color: var(--color-ink-soft);
+  margin: 0;
+  font-size: 0.94rem;
+}
+
+/* ===== Team CTA (lightened, page-scoped so it doesn't collide with the
+   shared .cta-banner used on Accueil / Clinique) ===== */
+.team-cta {
+  background: var(--color-off-white);
+  border-top: 1px solid var(--color-border);
+  padding: 56px 24px;
+}
+.team-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.team-cta h2 {
+  margin-bottom: 6px;
+}
+.team-cta p {
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .team-hero { padding: 88px 24px 48px; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .commitment-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .dept-filter-toggle { display: flex; }
+  .dept-filter {
+    flex-direction: column;
+    align-items: stretch;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0;
+    opacity: 0;
+    transition: max-height 0.25s ease, opacity 0.2s ease, margin-top 0.25s ease;
+  }
+  .dept-filter.is-open {
+    max-height: 400px;
+    opacity: 1;
+    margin-top: 12px;
+  }
+  .dept-pill { text-align: center; }
+}
+
+@media (max-width: 560px) {
+  .team-hero { padding: 80px 20px 40px; text-align: left; }
+  .team-hero h1 { font-size: 2.1rem; }
+  .team-tagline { font-size: 1.05rem; }
+  .team-grid { grid-template-columns: 1fr; }
+  .team-cta-inner { flex-direction: column; align-items: stretch; text-align: center; }
+  .team-cta .btn { width: 100%; }
+}
