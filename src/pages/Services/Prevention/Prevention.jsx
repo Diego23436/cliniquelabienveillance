@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import PageShell from '../../../components/PageShell/PageShell';
 import { useLanguage } from '../../../i18n/LanguageContext';
-import { content, categories, lifeStages, benefits, process as careProcess } from './Prevention.content';
+import { content, categories, lifeStages, benefits, process as careProcess } from './prevention.content';
 import './Prevention.css';
 
 const HERO_IMAGE = '/public/prevention-banner.png';
