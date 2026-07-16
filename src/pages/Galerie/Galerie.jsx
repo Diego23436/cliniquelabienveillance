@@ -61,10 +61,42 @@ function Icon({ name }) {
   const inner = ICONS[name] ?? ICONS.photo;
 
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
       {inner}
     </svg>
   );
+}
+
+function isVideoFile(src = '') {
+  return /\.(mp4|webm|mov|m4v)(\?.*)?$/i.test(src);
+}
+
+function MediaVisual({ item, className, loading = 'lazy', preview = false, variant = 'tile' }) {
+  if (item.type === 'video' && isVideoFile(item.src)) {
+    return (
+      <video
+        className={className}
+        src={item.src}
+        poster={item.poster ?? '/home-banner.png'}
+        autoPlay={variant !== 'lightbox'}
+        muted={variant !== 'lightbox'}
+        loop={variant !== 'lightbox'}
+        playsInline
+        controls={variant === 'lightbox'}
+        preload={preview || variant !== 'lightbox' ? 'auto' : 'metadata'}
+      />
+    );
+  }
+
+  return <img className={className} src={item.src} alt={item.alt} loading={loading} />;
 }
 
 export default function Galerie() {
@@ -143,7 +175,7 @@ export default function Galerie() {
               onClick={() => setActiveItemId(featuredItem.id)}
               aria-label={`${c.openLabel} ${featuredItem.title}`}
             >
-              <img src={featuredItem.src} alt={featuredItem.alt} />
+              <MediaVisual item={featuredItem} className="gal-featured-image" variant="tile" />
               <span className="gal-media-type">
                 <Icon name={featuredItem.type} />
                 {featuredItem.typeLabel}
@@ -162,10 +194,20 @@ export default function Galerie() {
               </div>
               <h3>{featuredItem.title}</h3>
               <p>{featuredItem.description}</p>
-              <button type="button" className="gal-open-link" onClick={() => setActiveItemId(featuredItem.id)}>
+              <button
+                type="button"
+                className="gal-open-link"
+                onClick={() => setActiveItemId(featuredItem.id)}
+              >
                 {c.openMedia}
                 <svg width="15" height="11" viewBox="0 0 16 12" fill="none" aria-hidden="true">
-                  <path d="M1 6h13M9 1l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                  <path
+                    d="M1 6h13M9 1l5 5-5 5"
+                    stroke="currentColor"
+                    strokeWidth="1.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </button>
             </div>
@@ -197,14 +239,18 @@ export default function Galerie() {
 
           <div className="gal-grid" key={activeFilter}>
             {filteredMedia.map((item, index) => (
-              <article className={`gal-card gal-card-${item.size}`} key={item.id} style={{ animationDelay: `${index * 65}ms` }}>
+              <article
+                className={`gal-card gal-card-${item.size}`}
+                key={item.id}
+                style={{ animationDelay: `${index * 65}ms` }}
+              >
                 <button
                   type="button"
                   className="gal-card-media"
                   onClick={() => setActiveItemId(item.id)}
                   aria-label={`${c.openLabel} ${item.title}`}
                 >
-                  <img src={item.src} alt={item.alt} loading="lazy" />
+                  <MediaVisual item={item} className="gal-card-image" variant="tile" />
                   <span className="gal-media-type">
                     <Icon name={item.type} />
                     {item.typeLabel}
@@ -252,7 +298,9 @@ export default function Galerie() {
             <h2>{c.ctaTitle}</h2>
             <p>{c.ctaBody}</p>
           </div>
-          <Link to="/contact/rendez-vous" className="btn btn-primary">{c.ctaButton}</Link>
+          <Link to="/contact/rendez-vous" className="btn btn-primary">
+            {c.ctaButton}
+          </Link>
         </div>
       </section>
 
@@ -265,12 +313,17 @@ export default function Galerie() {
             aria-labelledby="gal-lightbox-title"
             onClick={(event) => event.stopPropagation()}
           >
-            <button type="button" className="gal-lightbox-close" onClick={() => setActiveItemId(null)} aria-label={c.closeLabel}>
+            <button
+              type="button"
+              className="gal-lightbox-close"
+              onClick={() => setActiveItemId(null)}
+              aria-label={c.closeLabel}
+            >
               <Icon name="close" />
             </button>
             <div className="gal-lightbox-media">
-              <img src={activeItem.src} alt={activeItem.alt} />
-              {activeItem.type === 'video' && (
+              <MediaVisual item={activeItem} className="gal-lightbox-image" variant="lightbox" preview={false} />
+              {activeItem.type === 'video' && isVideoFile(activeItem.src) && (
                 <span className="gal-lightbox-play">
                   <Icon name="play" />
                 </span>
@@ -284,7 +337,9 @@ export default function Galerie() {
               </div>
               <h2 id="gal-lightbox-title">{activeItem.title}</h2>
               <p>{activeItem.description}</p>
-              {activeItem.type === 'video' && <p className="gal-video-note">{c.videoNote}</p>}
+              {activeItem.type === 'video' && isVideoFile(activeItem.src) && (
+                <p className="gal-video-note">{c.videoNote}</p>
+              )}
             </div>
           </article>
         </div>

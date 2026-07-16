@@ -1,4 +1,5 @@
-const MAIN_LOCATION_QUERY = '3P8J%2B6WV%2C%20Petit%20March%C3%A9%2C%20Bepanda%2C%20Douala';
+const MAIN_LOCATION_QUERY = 'Ancienne%20gare%20routi%C3%A8re%2C%20Dakar%2C%20Douala';
+const SECOND_LOCATION_QUERY = 'Yassa%2C%20centre%20de%20sante%20la%20bienveillance';
 
 export const services = [
   { id: 'consultation', fr: 'Consultation générale', en: 'General consultation' },
@@ -30,7 +31,7 @@ export const steps = [
   {
     id: 'confirmation',
     fr: {
-      title: 'Confirmation par l’équipe',
+      title: "Confirmation par l'équipe",
       body: 'La clinique confirme le créneau le plus adapté et les documents à apporter.',
     },
     en: {
@@ -41,8 +42,8 @@ export const steps = [
   {
     id: 'arrival',
     fr: {
-      title: 'Accueil sur site',
-      body: 'À votre arrivée, l’équipe vous oriente vers le bon service sans délai inutile.',
+      title: "Accueil sur site",
+      body: "À votre arrivée, l'équipe vous oriente vers le bon service sans délai inutile.",
     },
     en: {
       title: 'On-site welcome',
@@ -55,31 +56,31 @@ export const contactMethods = [
   {
     id: 'appointment',
     icon: 'phone',
-    href: 'tel:+237699615098',
+    href: 'tel:+237693321684',
     fr: {
       title: 'Rendez-vous',
       body: 'Pour réserver ou déplacer un créneau de consultation.',
-      action: '+237 699 61 50 98',
+      action: '+237 693 32 16 84',
     },
     en: {
       title: 'Appointments',
       body: 'For booking or moving a consultation slot.',
-      action: '+237 699 61 50 98',
+      action: '+237 693 32 16 84',
     },
   },
   {
     id: 'emergency',
     icon: 'emergency',
-    href: 'tel:+237674621928',
+    href: 'tel:+237670103404',
     fr: {
       title: 'Urgences',
       body: 'Pour une situation qui demande une réponse immédiate.',
-      action: '+237 674 62 19 28',
+      action: '+237 670 10 34 04',
     },
     en: {
       title: 'Emergency',
       body: 'For a situation that needs an immediate response.',
-      action: '+237 674 62 19 28',
+      action: '+237 670 10 34 04',
     },
   },
   {
@@ -101,49 +102,45 @@ export const contactMethods = [
 
 export const locations = [
   {
-    id: 'bepanda',
+    id: 'ancienne-gare-routiere',
     mapEmbedUrl: `https://www.google.com/maps?q=${MAIN_LOCATION_QUERY}&output=embed`,
     mapUrl: `https://www.google.com/maps/search/?api=1&query=${MAIN_LOCATION_QUERY}`,
     fr: {
       kicker: 'Site principal',
-      name: 'Clinique La Bienveillance — Bepanda',
-      address: '3P8J+6WV, Petit Marché, Bepanda, Douala',
+      name: 'Clinique La Bienveillance — Ancienne gare routière',
+      address: 'Ancienne gare routière, Dakar, Douala',
       hours: 'Ouvert 24h/24, 7j/7',
-      phone: '+237 699 61 50 98',
-      mapTitle: 'Carte Google Maps du site principal de Bepanda',
+      phone: '+237 693 32 16 84',
+      mapTitle: 'Carte Google Maps du site principal',
     },
     en: {
       kicker: 'Main location',
-      name: 'Clinique La Bienveillance — Bepanda',
-      address: '3P8J+6WV, Petit Marché, Bepanda, Douala',
+      name: 'Clinique La Bienveillance — Ancient bus station',
+      address: 'Ancienne gare routière, Dakar, Douala',
       hours: 'Open 24 hours, every day',
-      phone: '+237 699 61 50 98',
-      mapTitle: 'Google Maps view of the main Bepanda location',
+      phone: '+237 693 32 16 84',
+      mapTitle: 'Google Maps view of the main location',
     },
   },
   {
-    id: 'second-site',
-    mapEmbedUrl: '',
-    mapUrl: '',
+    id: 'yassa',
+    mapEmbedUrl: `https://www.google.com/maps?q=${SECOND_LOCATION_QUERY}&output=embed`,
+    mapUrl: `https://www.google.com/maps/search/?api=1&query=${SECOND_LOCATION_QUERY}`,
     fr: {
       kicker: 'Second site',
-      name: 'Clinique La Bienveillance — Second site',
-      address: 'Adresse à confirmer',
-      hours: 'Horaires à confirmer',
-      phone: 'À confirmer',
-      mapTitle: 'Carte du second site à intégrer',
-      mapPendingTitle: 'Localisation en attente',
-      mapPendingBody: 'La carte Google Maps sera activée dès que la deuxième adresse sera fournie.',
+      name: 'Clinique La Bienveillance — Yassa',
+      address: 'Yassa, centre de sante la bienveillance',
+      hours: 'Ouvert 24h/24, 7j/7',
+      phone: '+237 699 61 50 98',
+      mapTitle: 'Carte Google Maps du second site',
     },
     en: {
       kicker: 'Second location',
-      name: 'Clinique La Bienveillance — Second location',
-      address: 'Address to be confirmed',
-      hours: 'Hours to be confirmed',
-      phone: 'To be confirmed',
-      mapTitle: 'Second location map to be added',
-      mapPendingTitle: 'Location pending',
-      mapPendingBody: 'The Google Maps view will be activated as soon as the second address is provided.',
+      name: 'Clinique La Bienveillance — Yassa',
+      address: 'Yassa, centre de sante la bienveillance',
+      hours: 'Open 24 hours, every day',
+      phone: '+237 699 61 50 98',
+      mapTitle: 'Google Maps view of the second location',
     },
   },
 ];
@@ -156,15 +153,16 @@ export const content = {
     title: 'Prendre rendez-vous à la Clinique La Bienveillance',
     tagline: 'Un accès simple aux soins, avec une équipe disponible et attentive.',
     intro:
-      'Préparez votre demande de rendez-vous, choisissez le service souhaité et retrouvez nos coordonnées principales sur la même page.',
+      'Préparez votre demande de rendez-vous, choisissez le service souhaité et retrouvez nos deux sites ainsi que nos coordonnées principales sur la même page.',
     heroButton: 'Commencer la demande',
-    appointmentPhoneRaw: '+237699615098',
-    appointmentPhone: '+237 699 61 50 98',
+    appointmentPhoneRaw: '+237693321684',
+    appointmentPhone: '+237 693 32 16 84',
     heroCardLabel: 'Disponibilité de la clinique',
-    heroCardTitle: 'Accueil 24h/24',
-    heroCardBody: 'Pour les situations urgentes, appelez directement la clinique afin d’obtenir une orientation rapide.',
-    heroCardLineOne: 'Consultations, urgences courantes, laboratoire',
-    heroCardLineTwo: 'Bepanda, Douala',
+    heroCardTitle: 'Deux sites pour mieux vous accueillir',
+    heroCardBody:
+      'Pour les situations urgentes ou les rendez-vous, appelez directement la clinique afin d’obtenir une orientation rapide.',
+    heroCardLineOne: 'Ancienne gare routière, Dakar, Douala',
+    heroCardLineTwo: 'Yassa, centre de sante la bienveillance',
     methodsEyebrow: 'Contacts directs',
     methodsTitle: 'Choisissez le moyen le plus rapide',
     methodsSubtitle:
@@ -172,9 +170,9 @@ export const content = {
     formEyebrow: 'Demande de rendez-vous',
     formTitle: 'Un parcours clair avant votre arrivée',
     formSubtitle:
-      'Le formulaire prépare les informations essentielles afin que l’équipe puisse confirmer le créneau et le bon service.',
+      "Le formulaire prépare les informations essentielles afin que l'équipe puisse confirmer le créneau et le bon service.",
     formCardTitle: 'Détails du rendez-vous',
-    formCardSubtitle: 'Remplissez les champs principaux, puis confirmez votre demande avec l’équipe.',
+    formCardSubtitle: "Remplissez les champs principaux, puis confirmez votre demande avec l'équipe.",
     nameLabel: 'Nom complet',
     namePlaceholder: 'Votre nom',
     phoneLabel: 'Téléphone',
@@ -191,7 +189,7 @@ export const content = {
     locationsEyebrow: 'Nos coordonnées',
     locationsTitle: 'Deux sites, une même attention',
     locationsSubtitle:
-      'Voici les deux emplacements prévus pour la clinique. Le site principal est déjà relié à Google Maps; le second sera activé dès réception de l’adresse exacte.',
+      'Voici les deux emplacements de la clinique. Les deux sites sont mis en avant pour faciliter votre orientation.',
     openMapLabel: 'Voir sur Google Maps',
     mapPendingLabel: 'Carte à confirmer',
   },
@@ -202,15 +200,16 @@ export const content = {
     title: 'Book an appointment at Clinique La Bienveillance',
     tagline: 'Simple access to care, with an available and attentive team.',
     intro:
-      'Prepare your appointment request, choose the service you need, and find our main location details on the same page.',
+      'Prepare your appointment request, choose the service you need, and find both clinic locations plus our main contact details on the same page.',
     heroButton: 'Start the request',
-    appointmentPhoneRaw: '+237699615098',
-    appointmentPhone: '+237 699 61 50 98',
+    appointmentPhoneRaw: '+237693321684',
+    appointmentPhone: '+237 693 32 16 84',
     heroCardLabel: 'Clinic availability',
-    heroCardTitle: '24/7 reception',
-    heroCardBody: 'For urgent situations, call the clinic directly so the team can guide you quickly.',
-    heroCardLineOne: 'Consultations, everyday emergencies, laboratory',
-    heroCardLineTwo: 'Bepanda, Douala',
+    heroCardTitle: 'Two locations for easier access',
+    heroCardBody:
+      'For urgent situations or appointments, call the clinic directly so the team can guide you quickly.',
+    heroCardLineOne: 'Ancienne gare routière, Dakar, Douala',
+    heroCardLineTwo: 'Yassa, centre de sante la bienveillance',
     methodsEyebrow: 'Direct contacts',
     methodsTitle: 'Choose the fastest channel',
     methodsSubtitle:
@@ -237,7 +236,7 @@ export const content = {
     locationsEyebrow: 'Our locations',
     locationsTitle: 'Two locations, one standard of care',
     locationsSubtitle:
-      'These are the two planned clinic locations. The main location is already connected to Google Maps; the second will be activated when the exact address is provided.',
+      'These are the two clinic locations. Both sites are highlighted to make orientation easy.',
     openMapLabel: 'Open in Google Maps',
     mapPendingLabel: 'Map to confirm',
   },

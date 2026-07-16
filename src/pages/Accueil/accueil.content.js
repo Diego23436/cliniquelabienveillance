@@ -7,18 +7,18 @@ export const content = {
     heroEyebrow: 'Centre de Santé Communautaire — Douala',
     heroTitle: 'Votre santé, notre bienveillance.',
     heroBody:
-      "La Clinique La Bienveillance accueille les patients 24h/24 et 7j/7, avec des soins attentifs, une équipe qualifiée et un accompagnement bilingue à chaque étape.",
+      "La Clinique La Bienveillance accueille les patients 24h/24 et 7j/7, avec des soins attentifs, une équipe qualifiée et deux sites à Douala pour rester proche de vous.",
     ctaBook: 'Prendre rendez-vous',
     ctaServices: 'Découvrir nos services',
     strip: [
-      { label: 'Ouvert', value: '24h/24, 7j/7' },
-      { label: 'Urgences', value: '+237 674 62 19 28' },
-      { label: 'Localisation', value: 'Bepanda, Douala' },
+      { label: 'Téléphone 1', value: '+237 693 32 16 84' },
+      { label: 'Téléphone 2', value: '+237 670 10 34 04' },
+      { label: 'Téléphone 3', value: '+237 699 61 50 98' },
     ],
     introEyebrow: 'Bienvenue',
     introTitle: 'Des soins de proximité, pensés pour vous',
     introBody:
-      "Depuis notre implantation à Bepanda, nous proposons consultations, pharmacie, laboratoire d'analyses et orientation familiale au sein d'un même lieu, pour simplifier le parcours de nos patients.",
+      "La clinique fonctionne sur deux sites à Douala, pour rapprocher les consultations, la pharmacie, le laboratoire d'analyses et l'orientation familiale de nos patients.",
     servicesTitle: 'Nos Services Principaux',
     services: [
       {
@@ -56,18 +56,18 @@ export const content = {
     heroEyebrow: 'Community Health Center — Douala',
     heroTitle: 'Your health, our care.',
     heroBody:
-      'Clinique La Bienveillance welcomes patients 24/7, with attentive care, a qualified team, and bilingual support at every step.',
+      'Clinique La Bienveillance welcomes patients 24/7, with attentive care, a qualified team, and two locations in Douala to stay close to you.',
     ctaBook: 'Book an appointment',
     ctaServices: 'Explore our services',
     strip: [
-      { label: 'Open', value: '24 hours, every day' },
-      { label: 'Emergency', value: '+237 674 62 19 28' },
-      { label: 'Location', value: 'Bepanda, Douala' },
+      { label: 'Phone 1', value: '+237 693 32 16 84' },
+      { label: 'Phone 2', value: '+237 670 10 34 04' },
+      { label: 'Phone 3', value: '+237 699 61 50 98' },
     ],
     introEyebrow: 'Welcome',
     introTitle: 'Community care, close to home',
     introBody:
-      'Based in Bepanda, we bring together consultations, a pharmacy, a lab, and family planning support under one roof, to make the patient journey simpler.',
+      'The clinic operates across two locations in Douala, bringing consultations, pharmacy, lab work, and family guidance closer to patients.',
     servicesTitle: 'Our Core Services',
     services: [
       {

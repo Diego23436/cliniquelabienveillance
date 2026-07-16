@@ -191,7 +191,11 @@
 
 .gal-featured-media img,
 .gal-card-media img,
-.gal-lightbox-media img {
+.gal-lightbox-media img,
+.gal-featured-media video,
+.gal-card-media video,
+.gal-lightbox-media video {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;

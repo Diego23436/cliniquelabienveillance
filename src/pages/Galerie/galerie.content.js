@@ -38,7 +38,8 @@ export const mediaItems = [
     id: 'care-pathway-video',
     type: 'video',
     category: 'clinic',
-    src: '/service-banner.png',
+    src: '/Clinique%20la%20Bienveillance%20Final.mp4',
+    poster: '/team-hero.png',
     duration: '01:20',
     size: 'tall',
     fr: {
@@ -75,6 +76,69 @@ export const mediaItems = [
       alt: 'Modern care space representing clinic services',
       description:
         'Consultation, pharmacy, laboratory, and family guidance gathered into a simple pathway.',
+    },
+  },
+  {
+    id: 'clinic-entry-photo',
+    type: 'photo',
+    category: 'clinic',
+    src: '/img1.png',
+    size: 'standard',
+    fr: {
+      typeLabel: 'Photo',
+      title: 'Entrée de la clinique',
+      alt: 'Nouvelle image de l entrée de la Clinique La Bienveillance',
+      description:
+        'Un espace clair et accueillant pour situer le point d arrivée des patients.',
+    },
+    en: {
+      typeLabel: 'Photo',
+      title: 'Clinic entrance',
+      alt: 'New image of the Clinique La Bienveillance entrance',
+      description:
+        'A clear, welcoming view that marks the patient arrival point.',
+    },
+  },
+  {
+    id: 'clinic-care-photo',
+    type: 'photo',
+    category: 'clinic',
+    src: '/img2.png',
+    size: 'standard',
+    fr: {
+      typeLabel: 'Photo',
+      title: 'Espace de soins',
+      alt: 'Nouvelle image de l espace de soins de la Clinique La Bienveillance',
+      description:
+        'Une image complémentaire pour montrer un environnement de soins organisé.',
+    },
+    en: {
+      typeLabel: 'Photo',
+      title: 'Care area',
+      alt: 'New image of the care area at Clinique La Bienveillance',
+      description:
+        'An additional image showing an organized care environment.',
+    },
+  },
+  {
+    id: 'clinic-detail-photo',
+    type: 'photo',
+    category: 'clinic',
+    src: '/img3.png',
+    size: 'wide',
+    fr: {
+      typeLabel: 'Photo',
+      title: 'Détail du site',
+      alt: 'Nouvelle image détaillée de la Clinique La Bienveillance',
+      description:
+        'Une troisième image à placer dans la galerie pour compléter la visite visuelle.',
+    },
+    en: {
+      typeLabel: 'Photo',
+      title: 'Site detail',
+      alt: 'New detailed image of Clinique La Bienveillance',
+      description:
+        'A third image slot added to complete the visual tour.',
     },
   },
   {

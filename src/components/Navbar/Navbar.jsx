@@ -34,6 +34,7 @@ const NAV_ITEMS = [
       { to: '/galerie', key: 'nav.testimonials.gallery' },
     ],
   },
+  { to: '/contact/rendez-vous', key: 'nav.contact' },
 ];
 
 export default function Navbar() {
@@ -104,13 +105,11 @@ export default function Navbar() {
             {t('lang.switch')}
           </button>
 
-          <Link to="/contact/rendez-vous" className="btn btn-primary navbar-cta">
-            {t('nav.bookNow')}
-          </Link>
-
           <button
+            type="button"
             className="navbar-burger"
             aria-label="Menu"
+            aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
           >
             <span /><span /><span />

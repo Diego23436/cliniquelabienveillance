@@ -203,16 +203,16 @@ export const quickCards = [
   {
     id: 'call',
     icon: 'phone',
-    href: 'tel:+237699615098',
+    href: 'tel:+237693321684',
     fr: {
       title: 'Appeler l’accueil',
       body: 'Pour confirmer un horaire, une disponibilité ou un service.',
-      action: '+237 699 61 50 98',
+      action: '+237 693 32 16 84',
     },
     en: {
       title: 'Call the front desk',
       body: 'To confirm hours, availability, or a service.',
-      action: '+237 699 61 50 98',
+      action: '+237 693 32 16 84',
     },
   },
   {

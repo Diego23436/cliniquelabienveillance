@@ -24,16 +24,18 @@ export default function Footer() {
 
         <div className="footer-col">
           <h4>{t('footer.contact')}</h4>
-          <p>{t('footer.address1.label')}<br />
-            {/* DEFAULT — replace/confirm with owner */}
-            3P8J+6WV, Petit Marché, Bepanda, Douala
-          </p>
-          <p>{t('footer.address2.label')}<br />
-            {t('footer.address2.value')}
+          <p>
+            {t('footer.address1.label')}<br />
+            Ancienne gare routière, Dakar, Douala
           </p>
           <p>
-            Tél / Phone: <a href="tel:+237699615098">+237 699 61 50 98</a><br />
-            Urgences / Emergency: <a href="tel:+237674621928">+237 674 62 19 28</a>
+            {t('footer.address2.label')}<br />
+            Yassa, centre de sante la bienveillance
+          </p>
+          <p>
+            Tél 1: <a href="tel:+237693321684">+237 693 32 16 84</a><br />
+            Tél 2: <a href="tel:+237670103404">+237 670 10 34 04</a><br />
+            Tél 3: <a href="tel:+237699615098">+237 699 61 50 98</a>
           </p>
         </div>
 

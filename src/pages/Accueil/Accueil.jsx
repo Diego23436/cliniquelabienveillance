@@ -4,37 +4,34 @@ import { useLanguage } from '../../i18n/LanguageContext';
 import { content } from './accueil.content';
 import './Accueil.css';
 
+const HERO_IMAGE = '/home-banner.png';
+
 export default function Accueil() {
   const { lang } = useLanguage();
   const c = content[lang];
 
   return (
     <PageShell>
-      <section className="hero">
+      <section
+        className="hero"
+        style={{
+          backgroundImage: `url(${HERO_IMAGE})`,
+        }}
+      >
+        <div className="hero-scrim" aria-hidden="true" />
         <div className="container hero-inner">
-          <div className="hero-text">
-            <span className="eyebrow">{c.heroEyebrow}</span>
-            <h1>{c.heroTitle}</h1>
-            <p className="hero-body">{c.heroBody}</p>
-            <div className="hero-actions">
-              <Link to="/contact/rendez-vous" className="btn btn-primary">{c.ctaBook}</Link>
-              <Link to="/services" className="btn btn-ghost">{c.ctaServices}</Link>
-            </div>
-          </div>
-          <div className="hero-graphic" aria-hidden="true">
-            <svg viewBox="0 0 200 240" className="hero-caduceus">
-              <line x1="100" y1="10" x2="100" y2="230" stroke="var(--color-blue)" strokeWidth="4" strokeLinecap="round" />
-              <path d="M100 60 C 60 80, 60 110, 100 130 C 140 150, 140 180, 100 200" fill="none" stroke="var(--color-green)" strokeWidth="4" strokeLinecap="round" />
-              <path d="M100 60 C 140 80, 140 110, 100 130 C 60 150, 60 180, 100 200" fill="none" stroke="var(--color-blue)" strokeWidth="4" strokeLinecap="round" />
-              <circle cx="100" cy="30" r="9" fill="var(--color-green)" />
-            </svg>
+          <span className="eyebrow">{c.heroEyebrow}</span>
+          <h1>{c.heroTitle}</h1>
+          <p className="hero-body">{c.heroBody}</p>
+          <div className="hero-actions">
+            <Link to="/contact/rendez-vous" className="btn btn-primary">
+              {c.ctaBook}
+            </Link>
+            <Link to="/services" className="btn btn-ghost">
+              {c.ctaServices}
+            </Link>
           </div>
         </div>
-
-        {/* Signature wave divider echoing the caduceus curve */}
-        <svg className="hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,32 C 240,80 480,0 720,32 C 960,64 1200,16 1440,40 L1440,80 L0,80 Z" fill="var(--color-off-white)" />
-        </svg>
       </section>
 
       <div className="strip">
@@ -67,7 +64,9 @@ export default function Accueil() {
           ))}
         </div>
         <div className="services-cta">
-          <Link to="/services" className="btn btn-outline-blue">{c.seeAll}</Link>
+          <Link to="/services" className="btn btn-outline-blue">
+            {c.seeAll}
+          </Link>
         </div>
       </section>
 
@@ -98,7 +97,9 @@ export default function Accueil() {
             <h2>{c.ctaBannerTitle}</h2>
             <p>{c.ctaBannerBody}</p>
           </div>
-          <Link to="/contact/rendez-vous" className="btn btn-primary">{c.ctaBannerButton}</Link>
+          <Link to="/contact/rendez-vous" className="btn btn-primary">
+            {c.ctaBannerButton}
+          </Link>
         </div>
       </section>
     </PageShell>

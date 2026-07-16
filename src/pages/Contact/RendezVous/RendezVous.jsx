@@ -96,6 +96,40 @@ const initialForm = {
   consent: false,
 };
 
+const WHATSAPP_CONTACT = '237693321684';
+
+function buildWhatsAppMessage(lang, form, localizedServices, preferredPeriods) {
+  const selectedService = localizedServices.find((service) => service.id === form.service);
+  const selectedPeriod = preferredPeriods.find((period) => period.id === form.period);
+  const serviceLabel = selectedService?.label ?? form.service;
+  const periodLabel = selectedPeriod?.[lang] ?? form.period;
+
+  const lines =
+    lang === 'fr'
+      ? [
+          'Bonjour Clinique La Bienveillance,',
+          '',
+          `Nom: ${form.name}`,
+          `Téléphone: ${form.phone}`,
+          `Service: ${serviceLabel}`,
+          `Date souhaitée: ${form.date || 'Non précisée'}`,
+          `Moment préféré: ${periodLabel}`,
+          `Message: ${form.message || 'Aucun message supplémentaire'}`,
+        ]
+      : [
+          'Hello Clinique La Bienveillance,',
+          '',
+          `Name: ${form.name}`,
+          `Phone: ${form.phone}`,
+          `Service: ${serviceLabel}`,
+          `Preferred date: ${form.date || 'Not specified'}`,
+          `Preferred time: ${periodLabel}`,
+          `Message: ${form.message || 'No extra message'}`,
+        ];
+
+  return lines.join('\n');
+}
+
 export default function RendezVous() {
   const { lang } = useLanguage();
   const c = content[lang];
@@ -129,6 +163,14 @@ export default function RendezVous() {
   function handleSubmit(event) {
     event.preventDefault();
     setSubmitted(true);
+
+    const message = buildWhatsAppMessage(lang, form, localizedServices, preferredPeriods);
+    const url = `https://wa.me/${WHATSAPP_CONTACT}?text=${encodeURIComponent(message)}`;
+
+    const opened = window.open(url, '_blank', 'noopener,noreferrer');
+    if (!opened) {
+      window.location.href = url;
+    }
   }
 
   return (
