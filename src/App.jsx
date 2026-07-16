@@ -13,11 +13,13 @@ import Temoignages from './pages/Temoignages/Temoignages';
 import Galerie from './pages/Galerie/Galerie';
 import RendezVous from './pages/Contact/RendezVous/RendezVous';
 import Coordonnees from './pages/Contact/Coordonnees/Coordonnees';
+import SeoManager from './components/Seo/SeoManager';
 
 export default function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
+        <SeoManager />
         <Routes>
           <Route path="/" element={<Accueil />} />
 
