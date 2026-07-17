@@ -1,9 +1,11 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../i18n/LanguageContext';
+import { contactGroups } from '../../content/clinicContacts';
 import './Footer.css';
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const year = new Date().getFullYear();
 
   return (
@@ -24,19 +26,21 @@ export default function Footer() {
 
         <div className="footer-col">
           <h4>{t('footer.contact')}</h4>
-          <p>
-            {t('footer.address1.label')}<br />
-            Ancienne gare routière, Dakar, Douala
-          </p>
-          <p>
-            {t('footer.address2.label')}<br />
-            Yassa, centre de sante la bienveillance
-          </p>
-          <p>
-            Tél 1: <a href="tel:+237693321684">+237 693 32 16 84</a><br />
-            Tél 2: <a href="tel:+237670103404">+237 670 10 34 04</a><br />
-            Tél 3: <a href="tel:+237699615098">+237 699 61 50 98</a>
-          </p>
+          <div className="footer-contact-list">
+            {contactGroups[lang].map((group) => (
+              <div className="footer-contact-item" key={group.id}>
+                <strong>{group.title}</strong>
+                <span>{group.subtitle}</span>
+                <div className="footer-contact-phones">
+                  {group.phones.map((phone) => (
+                    <a key={phone.tel} href={`tel:${phone.tel}`}>
+                      {phone.display}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="footer-col">

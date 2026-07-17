@@ -60,6 +60,7 @@ export const categories = [
   {
     id: 'bone-joint',
     icon: 'bone',
+    imageFile: 'articulaire.png',
     fr: {
       title: 'Troubles Osseux & Articulaires',
       items: ['Arthrite', 'Ostéoporose', 'Douleurs dorsales', 'Fractures'],
@@ -72,6 +73,7 @@ export const categories = [
   {
     id: 'pediatric',
     icon: 'baby',
+    imageFile: 'pedriatique.png',
     fr: {
       title: 'Maladies Pédiatriques',
       items: ['Infections infantiles', 'Malnutrition', 'Troubles de la croissance'],
@@ -84,6 +86,7 @@ export const categories = [
   {
     id: 'womens-health',
     icon: 'female',
+    imageFile: 'maladie de femme.png',
     fr: {
       title: 'Santé de la Femme',
       items: ['Fibromes', 'SOPK', 'Troubles cervicaux', 'Complications de grossesse'],
@@ -96,6 +99,7 @@ export const categories = [
   {
     id: 'mens-health',
     icon: 'male',
+    imageFile: "maladie de l'homme.png",
     fr: {
       title: "Santé de l'Homme",
       items: ['Maladies de la prostate', 'Dysfonction érectile', 'Infertilité masculine'],

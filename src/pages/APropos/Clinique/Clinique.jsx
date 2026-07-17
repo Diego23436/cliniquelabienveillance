@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PageShell from '../../../components/PageShell/PageShell';
 import { useLanguage } from '../../../i18n/LanguageContext';
@@ -60,7 +61,7 @@ export default function Clinique() {
 
       <section className="section container">
         <h2 className="section-title">{c.locationsTitle}</h2>
-        <div className="locations-grid">
+            <div className="locations-grid">
           {c.locations.map((loc) => (
             <div className="location-card" key={loc.name}>
               <h3>{loc.name}</h3>
@@ -68,7 +69,13 @@ export default function Clinique() {
                 <strong>{loc.address}</strong>
               </p>
               <p className="location-line">{loc.hours}</p>
-              <p className="location-line">{loc.phone}</p>
+              <div className="location-phone-list">
+                {loc.phones.map((phone) => (
+                  <a className="location-phone-link" href={`tel:${phone.tel}`} key={phone.tel}>
+                    {phone.display}
+                  </a>
+                ))}
+              </div>
             </div>
           ))}
         </div>

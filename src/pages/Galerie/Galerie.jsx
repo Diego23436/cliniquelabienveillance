@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageShell from '../../components/PageShell/PageShell';
 import { useLanguage } from '../../i18n/LanguageContext';
@@ -80,6 +80,10 @@ function isVideoFile(src = '') {
 }
 
 function MediaVisual({ item, className, loading = 'lazy', preview = false, variant = 'tile' }) {
+  if (item.type === 'video' && variant !== 'lightbox') {
+    return <img className={className} src={item.poster ?? '/home-banner.png'} alt={item.alt} loading={loading} />;
+  }
+
   if (item.type === 'video' && isVideoFile(item.src)) {
     return (
       <video

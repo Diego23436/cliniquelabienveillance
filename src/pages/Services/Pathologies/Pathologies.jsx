@@ -1,3 +1,4 @@
+import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageShell from '../../../components/PageShell/PageShell';
 import { useLanguage } from '../../../i18n/LanguageContext';
@@ -13,6 +14,10 @@ const CATEGORY_IMAGE_EXTENSIONS = {
 };
 
 function getCategoryImage(cat) {
+  if (cat.imageFile) {
+    return encodeURI(`/pathologies/${cat.imageFile}`);
+  }
+
   const extension = CATEGORY_IMAGE_EXTENSIONS[cat.id] ?? 'png';
   return `/pathologies/${cat.id}.${extension}`;
 }

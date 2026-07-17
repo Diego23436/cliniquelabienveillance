@@ -1,3 +1,5 @@
+import { clinicLocations } from '../../../content/clinicContacts';
+
 // Local content for the "Notre Clinique" page only.
 
 export const content = {
@@ -20,20 +22,7 @@ export const content = {
     historyBody:
       'Implantée au cœur de Douala, notre clinique s’est développée autour d’un principe simple : la santé ne devrait jamais attendre. Consultations, pharmacie, laboratoire et orientation familiale sont réunis en un seul lieu pour simplifier le parcours de soins.',
     locationsTitle: 'Nos Deux Sites',
-    locations: [
-      {
-        name: 'Site Principal — Ancienne gare routière',
-        address: 'Ancienne gare routière, Dakar, Douala',
-        hours: 'Ouvert 24h/24, 7j/7',
-        phone: '+237 693 32 16 84',
-      },
-      {
-        name: 'Second Site — Yassa',
-        address: 'Yassa, centre de sante la bienveillance',
-        hours: 'Ouvert 24h/24, 7j/7',
-        phone: '+237 699 61 50 98',
-      },
-    ],
+    locations: clinicLocations.fr,
     teamTeaser: 'Envie de connaître l’équipe qui vous accueille ?',
     teamCta: 'Découvrir notre équipe',
     servicesCta: 'Voir nos services',
@@ -57,20 +46,7 @@ export const content = {
     historyBody:
       'Based in the heart of Douala, our clinic grew around one simple principle: health should never have to wait. Consultations, pharmacy, lab, and family guidance are brought together in one place to simplify the care journey.',
     locationsTitle: 'Our Two Locations',
-    locations: [
-      {
-        name: 'Main Site — Ancient bus station',
-        address: 'Ancienne gare routière, Dakar, Douala',
-        hours: 'Open 24 hours, every day',
-        phone: '+237 693 32 16 84',
-      },
-      {
-        name: 'Second Site — Yassa',
-        address: 'Yassa, centre de sante la bienveillance',
-        hours: 'Open 24 hours, every day',
-        phone: '+237 699 61 50 98',
-      },
-    ],
+    locations: clinicLocations.en,
     teamTeaser: 'Want to meet the team who will welcome you?',
     teamCta: 'Meet our team',
     servicesCta: 'View our services',

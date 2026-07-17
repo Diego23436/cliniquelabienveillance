@@ -1,7 +1,2 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()],
-})
+// Keep the Vite config minimal so it does not trigger workspace directory scans.
+export default {};

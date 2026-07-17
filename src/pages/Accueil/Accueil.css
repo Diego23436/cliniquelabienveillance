@@ -84,7 +84,7 @@
 .strip-item {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   text-align: center;
   border-left: 2px solid var(--color-green);
   padding-left: 16px;
@@ -105,6 +105,27 @@
 .strip-value {
   font-weight: 700;
   color: var(--color-blue-dark);
+}
+
+.strip-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-ink-soft);
+}
+
+.strip-phones {
+  display: grid;
+  gap: 4px;
+}
+
+.strip-phone {
+  display: block;
+  font-weight: 700;
+  color: var(--color-blue-dark);
+}
+
+.strip-note {
+  font-size: 0.82rem;
+  color: var(--color-ink-soft);
 }
 
 /* ===== Sections ===== */

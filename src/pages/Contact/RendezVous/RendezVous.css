@@ -226,6 +226,16 @@
   color: var(--color-blue);
 }
 
+.rv-method-phones {
+  display: grid;
+  gap: 6px;
+}
+
+.rv-method-phones a {
+  display: block;
+  margin-top: 0;
+}
+
 .rv-form-band {
   padding: 84px 0;
   background: linear-gradient(135deg, var(--color-blue-soft) 0%, var(--color-green-soft) 100%);
@@ -502,6 +512,15 @@
   height: 18px;
   margin-top: 2px;
   color: var(--color-blue);
+}
+
+.rv-location-phones {
+  display: grid;
+  gap: 6px;
+}
+
+.rv-location-phone-link {
+  font-weight: 700;
 }
 
 .rv-map-link {

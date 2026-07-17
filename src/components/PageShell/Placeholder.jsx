@@ -1,3 +1,4 @@
+import React from 'react';
 import { useLanguage } from '../../i18n/LanguageContext';
 
 // Drop this inside any stub page while it awaits its assigned developer.

@@ -2,6 +2,8 @@
 // This file is owned by whoever maintains this page — editing it
 // will not conflict with any other page's files.
 
+import { contactGroups } from '../../content/clinicContacts';
+
 export const content = {
   fr: {
     heroEyebrow: 'Centre de Santé Communautaire — Douala',
@@ -10,11 +12,7 @@ export const content = {
       "La Clinique La Bienveillance accueille les patients 24h/24 et 7j/7, avec des soins attentifs, une équipe qualifiée et deux sites à Douala pour rester proche de vous.",
     ctaBook: 'Prendre rendez-vous',
     ctaServices: 'Découvrir nos services',
-    strip: [
-      { label: 'Téléphone 1', value: '+237 693 32 16 84' },
-      { label: 'Téléphone 2', value: '+237 670 10 34 04' },
-      { label: 'Téléphone 3', value: '+237 699 61 50 98' },
-    ],
+    strip: contactGroups.fr,
     introEyebrow: 'Bienvenue',
     introTitle: 'Des soins de proximité, pensés pour vous',
     introBody:
@@ -59,11 +57,7 @@ export const content = {
       'Clinique La Bienveillance welcomes patients 24/7, with attentive care, a qualified team, and two locations in Douala to stay close to you.',
     ctaBook: 'Book an appointment',
     ctaServices: 'Explore our services',
-    strip: [
-      { label: 'Phone 1', value: '+237 693 32 16 84' },
-      { label: 'Phone 2', value: '+237 670 10 34 04' },
-      { label: 'Phone 3', value: '+237 699 61 50 98' },
-    ],
+    strip: contactGroups.en,
     introEyebrow: 'Welcome',
     introTitle: 'Community care, close to home',
     introBody:

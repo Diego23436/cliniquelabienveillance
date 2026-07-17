@@ -162,6 +162,18 @@
   color: var(--color-ink);
 }
 
+.location-phone-list {
+  display: grid;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.location-phone-link {
+  display: block;
+  color: var(--color-blue);
+  font-weight: 700;
+}
+
 .team-teaser {
   background: var(--color-blue-dark);
   color: var(--color-white);

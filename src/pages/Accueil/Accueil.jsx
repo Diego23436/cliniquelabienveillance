@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PageShell from '../../components/PageShell/PageShell';
 import { useLanguage } from '../../i18n/LanguageContext';
@@ -37,9 +38,17 @@ export default function Accueil() {
       <div className="strip">
         <div className="container strip-inner">
           {c.strip.map((item) => (
-            <div className="strip-item" key={item.label}>
-              <span className="strip-label">{item.label}</span>
-              <span className="strip-value">{item.value}</span>
+            <div className="strip-item" key={item.id}>
+              <span className="strip-label">{item.title}</span>
+              <span className="strip-subtitle">{item.subtitle}</span>
+              <div className="strip-phones">
+                {item.phones.map((phone) => (
+                  <a key={phone.tel} className="strip-phone" href={`tel:${phone.tel}`}>
+                    {phone.display}
+                  </a>
+                ))}
+              </div>
+              <span className="strip-note">{item.note}</span>
             </div>
           ))}
         </div>

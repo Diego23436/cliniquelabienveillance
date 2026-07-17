@@ -203,16 +203,16 @@ export const quickCards = [
   {
     id: 'call',
     icon: 'phone',
-    href: 'tel:+237693321684',
+    href: 'tel:+237677609056',
     fr: {
       title: 'Appeler l’accueil',
       body: 'Pour confirmer un horaire, une disponibilité ou un service.',
-      action: '+237 693 32 16 84',
+      action: '+237 677 60 90 56',
     },
     en: {
       title: 'Call the front desk',
       body: 'To confirm hours, availability, or a service.',
-      action: '+237 693 32 16 84',
+      action: '+237 677 60 90 56',
     },
   },
   {
@@ -232,7 +232,7 @@ export const quickCards = [
   {
     id: 'question',
     icon: 'chat',
-    href: 'https://wa.me/237699615098',
+    href: 'https://wa.me/237677609056',
     fr: {
       title: 'Question rapide',
       body: 'Envoyez un message si vous avez besoin d’une précision.',

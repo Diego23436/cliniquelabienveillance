@@ -1,3 +1,5 @@
+import { contactGroups, clinicLocations, directContact } from '../../../content/clinicContacts';
+
 const MAIN_LOCATION_QUERY = 'Ancienne%20gare%20routi%C3%A8re%2C%20Dakar%2C%20Douala';
 const SECOND_LOCATION_QUERY = 'Yassa%2C%20centre%20de%20sante%20la%20bienveillance';
 
@@ -54,94 +56,63 @@ export const steps = [
 
 export const contactMethods = [
   {
-    id: 'appointment',
+    id: 'main-site',
     icon: 'phone',
-    href: 'tel:+237693321684',
+    href: contactGroups.fr[0].href,
+    phones: contactGroups.fr[0].phones,
     fr: {
-      title: 'Rendez-vous',
-      body: 'Pour réserver ou déplacer un créneau de consultation.',
-      action: '+237 693 32 16 84',
+      title: 'Site principal',
+      body: contactGroups.fr[0].subtitle,
     },
     en: {
-      title: 'Appointments',
-      body: 'For booking or moving a consultation slot.',
-      action: '+237 693 32 16 84',
+      title: 'Main site',
+      body: contactGroups.en[0].subtitle,
     },
   },
   {
-    id: 'emergency',
-    icon: 'emergency',
-    href: 'tel:+237670103404',
+    id: 'second-site',
+    icon: 'pin',
+    href: contactGroups.fr[1].href,
+    phones: contactGroups.fr[1].phones,
     fr: {
-      title: 'Urgences',
-      body: 'Pour une situation qui demande une réponse immédiate.',
-      action: '+237 670 10 34 04',
+      title: 'Centre de sante La Bienveillance',
+      body: contactGroups.fr[1].subtitle,
     },
     en: {
-      title: 'Emergency',
-      body: 'For a situation that needs an immediate response.',
-      action: '+237 670 10 34 04',
+      title: 'La Bienveillance Health Center',
+      body: contactGroups.en[1].subtitle,
     },
   },
   {
-    id: 'hours',
+    id: 'direct-contact',
     icon: 'clock',
-    href: '#coordonnees',
+    href: `tel:${directContact.tel}`,
+    phones: [directContact],
     fr: {
-      title: 'Disponibilité',
-      body: 'Une présence organisée pour accueillir les patients chaque jour.',
-      action: 'Ouvert 24h/24, 7j/7',
+      title: directContact.label.fr,
+      body: 'WhatsApp et appels rapides pour les demandes urgentes.',
     },
     en: {
-      title: 'Availability',
-      body: 'A care presence organized to welcome patients every day.',
-      action: 'Open 24/7',
+      title: directContact.label.en,
+      body: 'WhatsApp and quick calls for urgent requests.',
     },
   },
 ];
 
 export const locations = [
   {
-    id: 'ancienne-gare-routiere',
+    id: 'main-location',
     mapEmbedUrl: `https://www.google.com/maps?q=${MAIN_LOCATION_QUERY}&output=embed`,
     mapUrl: `https://www.google.com/maps/search/?api=1&query=${MAIN_LOCATION_QUERY}`,
-    fr: {
-      kicker: 'Site principal',
-      name: 'Clinique La Bienveillance — Ancienne gare routière',
-      address: 'Ancienne gare routière, Dakar, Douala',
-      hours: 'Ouvert 24h/24, 7j/7',
-      phone: '+237 693 32 16 84',
-      mapTitle: 'Carte Google Maps du site principal',
-    },
-    en: {
-      kicker: 'Main location',
-      name: 'Clinique La Bienveillance — Ancient bus station',
-      address: 'Ancienne gare routière, Dakar, Douala',
-      hours: 'Open 24 hours, every day',
-      phone: '+237 693 32 16 84',
-      mapTitle: 'Google Maps view of the main location',
-    },
+    fr: clinicLocations.fr[0],
+    en: clinicLocations.en[0],
   },
   {
-    id: 'yassa',
+    id: 'second-location',
     mapEmbedUrl: `https://www.google.com/maps?q=${SECOND_LOCATION_QUERY}&output=embed`,
     mapUrl: `https://www.google.com/maps/search/?api=1&query=${SECOND_LOCATION_QUERY}`,
-    fr: {
-      kicker: 'Second site',
-      name: 'Clinique La Bienveillance — Yassa',
-      address: 'Yassa, centre de sante la bienveillance',
-      hours: 'Ouvert 24h/24, 7j/7',
-      phone: '+237 699 61 50 98',
-      mapTitle: 'Carte Google Maps du second site',
-    },
-    en: {
-      kicker: 'Second location',
-      name: 'Clinique La Bienveillance — Yassa',
-      address: 'Yassa, centre de sante la bienveillance',
-      hours: 'Open 24 hours, every day',
-      phone: '+237 699 61 50 98',
-      mapTitle: 'Google Maps view of the second location',
-    },
+    fr: clinicLocations.fr[1],
+    en: clinicLocations.en[1],
   },
 ];
 
@@ -155,14 +126,14 @@ export const content = {
     intro:
       'Préparez votre demande de rendez-vous, choisissez le service souhaité et retrouvez nos deux sites ainsi que nos coordonnées principales sur la même page.',
     heroButton: 'Commencer la demande',
-    appointmentPhoneRaw: '+237693321684',
-    appointmentPhone: '+237 693 32 16 84',
+    appointmentPhoneRaw: directContact.tel,
+    appointmentPhone: directContact.display,
     heroCardLabel: 'Disponibilité de la clinique',
     heroCardTitle: 'Deux sites pour mieux vous accueillir',
     heroCardBody:
-      'Pour les situations urgentes ou les rendez-vous, appelez directement la clinique afin d’obtenir une orientation rapide.',
+      'Pour les situations urgentes ou les rendez-vous, appelez le contact direct afin d’obtenir une orientation rapide.',
     heroCardLineOne: 'Ancienne gare routière, Dakar, Douala',
-    heroCardLineTwo: 'Yassa, centre de sante la bienveillance',
+    heroCardLineTwo: 'Yassa, centre de santé la bienveillance',
     methodsEyebrow: 'Contacts directs',
     methodsTitle: 'Choisissez le moyen le plus rapide',
     methodsSubtitle:
@@ -202,14 +173,14 @@ export const content = {
     intro:
       'Prepare your appointment request, choose the service you need, and find both clinic locations plus our main contact details on the same page.',
     heroButton: 'Start the request',
-    appointmentPhoneRaw: '+237693321684',
-    appointmentPhone: '+237 693 32 16 84',
+    appointmentPhoneRaw: directContact.tel,
+    appointmentPhone: directContact.display,
     heroCardLabel: 'Clinic availability',
     heroCardTitle: 'Two locations for easier access',
     heroCardBody:
-      'For urgent situations or appointments, call the clinic directly so the team can guide you quickly.',
+      'For urgent situations or appointments, call the direct contact so the team can guide you quickly.',
     heroCardLineOne: 'Ancienne gare routière, Dakar, Douala',
-    heroCardLineTwo: 'Yassa, centre de sante la bienveillance',
+    heroCardLineTwo: 'Yassa, La Bienveillance Health Center',
     methodsEyebrow: 'Direct contacts',
     methodsTitle: 'Choose the fastest channel',
     methodsSubtitle:

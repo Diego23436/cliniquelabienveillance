@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageShell from '../../../components/PageShell/PageShell';
 import { useLanguage } from '../../../i18n/LanguageContext';
@@ -96,7 +96,7 @@ const initialForm = {
   consent: false,
 };
 
-const WHATSAPP_CONTACT = '237693321684';
+const WHATSAPP_CONTACT = '237677609056';
 
 function buildWhatsAppMessage(lang, form, localizedServices, preferredPeriods) {
   const selectedService = localizedServices.find((service) => service.id === form.service);
@@ -220,7 +220,7 @@ export default function RendezVous() {
           <p>{c.methodsSubtitle}</p>
         </div>
 
-        <div className="rv-method-grid">
+            <div className="rv-method-grid">
           {contactMethods.map((method, index) => (
             <article className="rv-method-card" key={method.id} style={{ animationDelay: `${index * 70}ms` }}>
               <span className="rv-method-icon">
@@ -228,7 +228,13 @@ export default function RendezVous() {
               </span>
               <h3>{method[lang].title}</h3>
               <p>{method[lang].body}</p>
-              <a href={method.href}>{method[lang].action}</a>
+              <div className="rv-method-phones">
+                {method.phones.map((phone) => (
+                  <a key={phone.tel} href={`tel:${phone.tel}`}>
+                    {phone.display}
+                  </a>
+                ))}
+              </div>
             </article>
           ))}
         </div>
@@ -400,10 +406,14 @@ export default function RendezVous() {
                       <Icon name="clock" />
                       <span>{localLocation.hours}</span>
                     </p>
-                    <p className="rv-location-line">
-                      <Icon name="phone" />
-                      <span>{localLocation.phone}</span>
-                    </p>
+                    <div className="rv-location-phones">
+                      {localLocation.phones.map((phone) => (
+                        <a className="rv-location-line rv-location-phone-link" href={`tel:${phone.tel}`} key={phone.tel}>
+                          <Icon name="phone" />
+                          <span>{phone.display}</span>
+                        </a>
+                      ))}
+                    </div>
 
                     {location.mapUrl ? (
                       <a className="rv-map-link" href={location.mapUrl} target="_blank" rel="noreferrer">

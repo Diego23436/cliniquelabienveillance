@@ -38,23 +38,22 @@ export const mediaItems = [
     id: 'care-pathway-video',
     type: 'video',
     category: 'clinic',
-    src: '/Clinique%20la%20Bienveillance%20Final.mp4',
+    src: 'https://res.cloudinary.com/t6wd9qum/video/upload/v1784211096/Clinique_la_Bienveillance_Final-1_epgkjv.mov',
     poster: '/team-hero.png',
-    duration: '01:20',
     size: 'tall',
     fr: {
       typeLabel: 'Vidéo',
-      title: 'Parcours patient en clinique',
-      alt: 'Aperçu visuel du parcours patient à la clinique',
+      title: 'Presentation de la clinique',
+      alt: 'Apercu video de la presentation de la clinique',
       description:
-        'Une vidéo de présentation à remplacer par le fichier réel lorsque la clinique fournira ses contenus officiels.',
+        'Un premier extrait video pour presenter les espaces et l ambiance generale de la clinique.',
     },
     en: {
-      typeLabel: 'Video',
-      title: 'Patient journey inside the clinic',
-      alt: 'Visual preview of the patient journey at the clinic',
+      typeLabel: 'Vidéo',
+      title: 'Clinic presentation',
+      alt: 'Video preview of the clinic presentation',
       description:
-        'A presentation video placeholder to replace with the real file when the clinic provides official media.',
+        'A first video excerpt showcasing the spaces and overall atmosphere of the clinic.',
     },
   },
   {
@@ -187,22 +186,22 @@ export const mediaItems = [
     id: 'lab-video',
     type: 'video',
     category: 'lab',
-    src: '/pathologies/endocrine.png',
-    duration: '00:45',
+    src: 'https://res.cloudinary.com/t6wd9qum/video/upload/v1784220588/Clinique_la_Bienveillance_Final-2_l8iuj2.mov',
+    poster: '/service-banner.png',
     size: 'standard',
     fr: {
       typeLabel: 'Vidéo',
-      title: 'Comprendre les analyses',
-      alt: 'Aperçu vidéo sur les analyses médicales',
+      title: 'Le laboratoire en image',
+      alt: 'Apercu video du laboratoire',
       description:
-        'Un format vidéo court prévu pour expliquer la préparation aux examens et la lecture des résultats.',
+        'Un extrait video pour illustrer le travail de laboratoire et le parcours des analyses.',
     },
     en: {
-      typeLabel: 'Video',
-      title: 'Understanding lab tests',
-      alt: 'Video preview about medical analyses',
+      typeLabel: 'Vidéo',
+      title: 'Laboratory in focus',
+      alt: 'Video preview of the laboratory',
       description:
-        'A short video format planned to explain test preparation and result interpretation.',
+        'A video excerpt showing the laboratory workflow and how analyses are handled.',
     },
   },
   {
@@ -272,22 +271,44 @@ export const mediaItems = [
     id: 'neurology-care-video',
     type: 'video',
     category: 'services',
-    src: '/pathologies/neurological.webp',
-    duration: '00:55',
+    src: 'https://res.cloudinary.com/t6wd9qum/video/upload/v1784221292/Clinique_la_Bienveillance_Final-3_m6k4il.mov',
+    poster: '/pathology-banner.png',
     size: 'standard',
     fr: {
       typeLabel: 'Vidéo',
-      title: 'Quand consulter pour des maux de tête ?',
-      alt: 'Aperçu vidéo lié aux symptômes neurologiques',
+      title: 'Parcours de soins et suivi',
+      alt: 'Apercu video du parcours de soins',
       description:
-        'Un futur extrait vidéo éducatif pour reconnaître les signes qui nécessitent une consultation rapide.',
+        'Un extrait video pour mettre en valeur le suivi medical et l accompagnement des patients.',
+    },
+    en: {
+      typeLabel: 'Vidéo',
+      title: 'Care pathway and follow-up',
+      alt: 'Video preview of the care pathway',
+      description:
+        'A video excerpt that highlights medical follow-up and patient support.',
+    },
+  },
+  {
+    id: 'facility-tour-video',
+    type: 'video',
+    category: 'clinic',
+    src: 'https://res.cloudinary.com/t6wd9qum/video/upload/v1784259978/Clinique_la_Bienveillance_Final-4_qakbgk.mov',
+    poster: '/img3.png',
+    size: 'wide',
+    fr: {
+      typeLabel: 'Video',
+      title: 'Visite visuelle du site',
+      alt: 'Apercu video de la visite du site',
+      description:
+        'Un quatrieme extrait video pour montrer le site, les reperes visuels et l accueil.',
     },
     en: {
       typeLabel: 'Video',
-      title: 'When to consult for headaches?',
-      alt: 'Video preview related to neurological symptoms',
+      title: 'Visual tour of the site',
+      alt: 'Video preview of the site tour',
       description:
-        'A future educational video excerpt for recognizing signs that require prompt consultation.',
+        'A fourth video excerpt to show the site, visual landmarks, and the welcome area.',
     },
   },
 ];
@@ -354,7 +375,7 @@ export const content = {
     openMedia: 'Voir le média',
     openLabel: 'Ouvrir',
     closeLabel: 'Fermer le média',
-    videoNote: 'Aperçu vidéo : le fichier officiel pourra être intégré lorsque la clinique le fournira.',
+    videoNote: 'Cliquez pour ouvrir la video en grand et la lire avec le lecteur integre.',
 
     categoryLabels: {
       clinic: 'Clinique',
@@ -394,7 +415,7 @@ export const content = {
     openMedia: 'View media',
     openLabel: 'Open',
     closeLabel: 'Close media',
-    videoNote: 'Video preview: the official file can be integrated when the clinic provides it.',
+    videoNote: 'Click to open the video larger and play it with the built-in player.',
 
     categoryLabels: {
       clinic: 'Clinic',

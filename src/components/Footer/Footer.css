@@ -37,6 +37,35 @@
   margin-bottom: 14px;
 }
 
+.footer-contact-list {
+  display: grid;
+  gap: 16px;
+}
+
+.footer-contact-item {
+  display: grid;
+  gap: 4px;
+}
+
+.footer-contact-item strong {
+  color: var(--color-white);
+  font-size: 0.96rem;
+}
+
+.footer-contact-item span {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.9rem;
+}
+
+.footer-contact-phones {
+  display: grid;
+  gap: 4px;
+}
+
+.footer-contact-phones a {
+  display: block;
+}
+
 .footer-brand img {
   height: 56px;
   width: 56px;
