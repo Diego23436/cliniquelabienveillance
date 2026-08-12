@@ -28,16 +28,6 @@ export const mainSiteContact = {
       tel: '+237670103404',
       wa: '237670103404',
     },
-    {
-      display: '+237 699 61 50 98',
-      tel: '+237699615098',
-      wa: '237699615098',
-    },
-    {
-      display: directContact.display,
-      tel: directContact.tel,
-      wa: directContact.wa,
-    },
   ],
 };
 
@@ -47,7 +37,7 @@ export const secondSiteContact = {
     en: 'La Bienveillance Health Center',
   },
   subtitle: {
-    fr: 'Yassa, Centre de santé La Bienveillance',
+    fr: 'Yassa, centre de santé la bienveillance',
     en: 'Yassa, La Bienveillance Health Center',
   },
   phones: [
@@ -60,11 +50,6 @@ export const secondSiteContact = {
       display: '+237 674 38 21 71',
       tel: '+237674382171',
       wa: '237674382171',
-    },
-    {
-      display: '+237 670 13 39 77',
-      tel: '+237670133977',
-      wa: '237670133977',
     },
   ],
 };
@@ -84,7 +69,7 @@ export const contactGroups = {
       title: secondSiteContact.title.fr,
       subtitle: secondSiteContact.subtitle.fr,
       phones: secondSiteContact.phones,
-      note: 'Les trois lignes du centre de santé de Yassa.',
+      note: 'Les deux lignes du centre de santé de Yassa.',
       href: secondSiteContact.phones[0].tel,
     },
     {
@@ -110,7 +95,7 @@ export const contactGroups = {
       title: secondSiteContact.title.en,
       subtitle: secondSiteContact.subtitle.en,
       phones: secondSiteContact.phones,
-      note: 'The three lines for the Yassa health center.',
+      note: 'The two lines for the Yassa health center.',
       href: secondSiteContact.phones[0].tel,
     },
     {
@@ -129,8 +114,8 @@ export const clinicLocations = {
     {
       id: 'main-location',
       kicker: 'Site principal',
-      name: 'Clinique La Bienveillance - Ancienne gare routiere',
-      address: 'Ancienne gare routiere, Dakar, Douala',
+      name: 'Clinique La Bienveillance - Ancienne gare routière',
+      address: 'Ancienne gare routière, Dakar, Douala',
       hours: 'Ouvert 24h/24, 7j/7',
       phones: mainSiteContact.phones,
       mapTitle: 'Carte Google Maps du site principal',
@@ -139,7 +124,7 @@ export const clinicLocations = {
       id: 'second-location',
       kicker: 'Second site',
       name: 'Centre de sante La Bienveillance - Yassa',
-      address: 'Yassa, centre de sante la bienveillance',
+      address: 'Yassa, lieu dit carrefour bonbon',
       hours: 'Ouvert 24h/24, 7j/7',
       phones: secondSiteContact.phones,
       mapTitle: 'Carte Google Maps du second site',

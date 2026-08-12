@@ -17,70 +17,119 @@ const CLINIC_PHONE_WA = '237677609056';
 const rawMembers = [
   {
     name: 'Dr. Soh',
-    dept: 'medecine ',
-    photo: '/imgteam1.png',
-    whatsappLink: 'https://wa.me/',
-    fr: { role: 'Médecin Généraliste', bio: 'Plus de 10 ans à l’écoute des familles de Douala Dakar.' },
-    en: { role: 'General Practitioner', bio: 'Over 10 years caring for families in Douala Dakar.' },
-  },
-  {
-    name: 'Dr. Serge Fotso',
-    dept: 'medecine',
-    photo: '/pathologies/imgteam2.png',
+    dept: 'medecin, Obsteticien et Sante Reproductive  ',
+    photo: '/imgteam1.jpg',
     whatsappLink: 'https://wa.me/237677609056',
-    fr: { role: 'Médecin Généraliste', bio: 'Suivi des adultes et consultations de garde en soirée.' },
-    en: { role: 'General Practitioner', bio: 'Adult follow-up care and evening on-call consultations.' },
+    fr: {
+      role: 'Médecin Généraliste',
+      bio: 'Accompagnement global en médecine générale avec une spécialisation en santé reproductive et périnatale.',
+    },
+    en: {
+      role: 'General Practitioner',
+      bio: 'Comprehensive general practice care with a focus on reproductive and perinatal health.',
+    },
   },
   {
-    name: 'Brenda Nga',
-    dept: 'soins',
-    photo: '/pathologies/imgteam3.png',
-    whatsappLink: 'https://wa.me/237677609056',
-    fr: { role: 'Infirmière Diplômée d’État', bio: 'Coordination des soins et injections en salle de consultation.' },
-    en: { role: 'Registered Nurse', bio: 'Coordinates care and treatments in the consultation room.' },
+    name: 'Dr. Negou Liliane',
+    dept: 'medecin geraliste',
+    photo: '/pathologies/imgteam2.jpg',
+    whatsappLink: 'https://wa.me/237650128282',
+    fr: {
+      role: 'Médecin Généraliste',
+      bio: 'Suivi des adultes et consultations de garde en soirée.',
+    },
+    en: {
+      role: 'General Practitioner',
+      bio: 'Adult follow-up care and evening on-call consultations.',
+    },
   },
   {
-    name: 'Paul Eyenga',
-    dept: 'soins',
+    name: 'Dr Flaure Tchopda Epse Kamdoum ',
+    dept: 'Laboratoire, Biologiste Médicale',
+    photo: '/pathologies/imgteam3.jpg',
+    whatsappLink: 'https://wa.me/237697791411',
+    fr: {
+      role: 'Biologiste Médicale',
+      bio: 'Analyses de routine et remise des résultats sous 24h.',
+    },
+    en: {
+      role: 'Medical Biologist',
+      bio: 'Routine analyses with results delivered within 24 hours.',
+    },
+  },
+  {
+    name: 'Dr Tene Soh Dylan Parfait',
+    dept: 'Medecin generaliste',
     photo: '/pathologies/imgteam4.png',
     whatsappLink: 'https://wa.me/237677609056',
-    fr: { role: 'Infirmier de Garde (nuit)', bio: 'Présent chaque nuit pour les urgences et les soins continus.' },
-    en: { role: 'Night-Shift Nurse', bio: 'On site every night for emergencies and continuous care.' },
+    fr: {
+      role: 'Médecin Généraliste',
+      bio: 'Suivi des adultes et consultations de garde en soirée.',
+    },
+    en: {
+      role: 'General Practitioner',
+      bio: 'Adult follow-up care and evening on-call consultations.',
+    },
   },
   {
-    name: 'Christelle Ateba',
-    dept: 'pharmacie',
+    name: 'Hameni Romario',
+    dept: 'Soin Obstretiques/ Maieuticien',
     photo: '/pathologies/imgteam5.png',
-    whatsappLink: 'https://wa.me/237677609056',
-    fr: { role: 'Pharmacienne Titulaire', bio: 'Délivrance et conseil sur les traitements prescrits.' },
-    en: { role: 'Lead Pharmacist', bio: 'Dispenses and advises on prescribed treatments.' },
+    whatsappLink: 'https://wa.me/237696641068',
+    fr: {
+      role: 'Sage-femme',
+      bio: 'Accompagnement obstétrical complet et suivi prénatal pour les patientes et leurs familles.',
+    },
+    en: {
+      role: 'Midwife',
+      bio: 'Complete obstetric support and prenatal follow-up for patients and their families.',
+    },
   },
   {
-    name: 'Junior Tchoumi',
-    dept: 'pharmacie',
+    name: 'Mme Fotso Valerie ',
+    dept: 'Major',
     photo: '/pathologies/imgteam6.png',
-    whatsappLink: 'https://wa.me/237677609056',
-    fr: { role: 'Préparateur en Pharmacie', bio: 'Gestion du stock et disponibilité des médicaments essentiels.' },
-    en: { role: 'Pharmacy Assistant', bio: 'Manages stock and availability of essential medicines.' },
+    whatsappLink: 'https://wa.me/237699157869',
+    fr: {
+      role: 'Préparatrice en Pharmacie',
+      bio: 'Coordination des préparations pharmaceutiques et suivi des stocks essentiels.',
+    },
+    en: {
+      role: 'Pharmacy Assistant',
+      bio: 'Coordinates pharmaceutical preparation and manages essential stock levels.',
+    },
   },
   {
-    name: 'Marlyse Doumbe',
-    dept: 'labo',
+    name: 'Samen Ornella',
+    dept: 'Pharmacie',
     photo: '/pathologies/imgteam7.png',
-    whatsappLink: 'https://wa.me/237677609056',
-    fr: { role: 'Technicienne de Laboratoire', bio: 'Analyses de routine et résultats sous 24h.' },
-    en: { role: 'Lab Technician', bio: 'Routine analyses with results within 24 hours.' },
+    whatsappLink: 'https://wa.me/237674299039',
+    fr: {
+      role: 'Technicienne de Laboratoire',
+      bio: 'Assure le lien entre le laboratoire et la pharmacie pour la préparation des traitements.',
+    },
+    en: {
+      role: 'Lab Technician',
+      bio: 'Bridges the laboratory and pharmacy for treatment preparation.',
+    },
   },
   {
-    name: 'Hervé Bindzi',
-    dept: 'labo',
+    name: 'Tchassi Tsinkou Danielle',
+    dept: 'Pharmacie principale',
     photo: '/pathologies/imgteam8.png',
-    whatsappLink: 'https://wa.me/237677609056',
-    fr: { role: 'Technicien de Laboratoire', bio: 'Prélèvements et suivi des examens spécialisés.' },
-    en: { role: 'Lab Technician', bio: 'Sample collection and specialized test follow-up.' },
+    whatsappLink: 'https://wa.me/237693953876',
+    fr: {
+      role: 'Technicien de Laboratoire',
+      bio: 'Spécialiste des prélèvements biologiques et du support technique en pharmacie principale.',
+    },
+    en: {
+      role: 'Lab Technician',
+      bio: 'Specializes in biological sampling and technical support for the main pharmacy.',
+    },
   },
-  {
-    name: 'Solange Ekwalla',
+  
+/* {
+   name: 'Solange Ekwalla',
     dept: 'accueil',
     photo: '/pathologies/imgteam9.png',
     whatsappLink: 'https://wa.me/237677609056',
@@ -95,12 +144,25 @@ const rawMembers = [
     fr: { role: 'Agent d’Accueil', bio: 'Accompagnement administratif et prise de rendez-vous.' },
     en: { role: 'Front Desk Officer', bio: 'Administrative support and appointment scheduling.' },
   },
+  */
 ];
+
+function normalizeDept(dept) {
+  const value = (dept || '').trim().toLowerCase();
+  if (/medecin.*obsteticien|obstretiques|sante reproductive|reproductive|sante/i.test(value)) return 'medecine';
+  if (/medecin.*generaliste|medecin generaliste|medecin geraliste|medecin/i.test(value)) return 'medecine';
+  if (/laboratoire|biologiste/i.test(value)) return 'labo';
+  if (/soin.*obstretiques|maieuticien|obstet/i.test(value)) return 'soins';
+  if (/pharmacie|major/i.test(value)) return 'pharmacie';
+  if (/accueil|orientation/i.test(value)) return 'accueil';
+  return 'medecine';
+}
 
 function buildMembers(lang) {
   return rawMembers.map((member) => ({
     name: member.name,
-    dept: member.dept,
+    dept: normalizeDept(member.dept),
+    rawDept: member.dept.trim(),
     photo: member.photo,
     whatsappLink: member.whatsappLink,
     role: member[lang].role,
@@ -109,8 +171,7 @@ function buildMembers(lang) {
     phoneTel: CLINIC_PHONE_TEL,
     whatsapp: CLINIC_PHONE_WA,
   }));
-}
-
+} 
 export const content = {
   fr: {
     breadcrumbHome: 'Accueil',

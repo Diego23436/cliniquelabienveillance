@@ -32,7 +32,8 @@ export const translations = {
     'footer.address1.label': 'Site Principal',
     'footer.address2.label': 'Second Site',
     'footer.address2.value': 'Yassa, centre de sante la bienveillance',
-
+    'footer.insurances': 'Assurances',
+    'footer.followUs': 'Suivez-nous',
     'placeholder.title': 'Page en construction',
     'placeholder.body': 'Cette page fait partie de la structure du site et sera complétée prochainement par notre équipe.',
 
@@ -67,7 +68,8 @@ export const translations = {
     'footer.address1.label': 'Main Location',
     'footer.address2.label': 'Second Location',
     'footer.address2.value': 'Yassa, centre de sante la bienveillance',
-
+    'footer.insurances': 'Insurances',
+    'footer.followUs': 'Follow us',
     'placeholder.title': 'Page under construction',
     'placeholder.body': 'This page is part of the site structure and will be completed soon by our team.',
 

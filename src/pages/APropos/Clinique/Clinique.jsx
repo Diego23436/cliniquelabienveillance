@@ -47,6 +47,29 @@ export default function Clinique() {
         </div>
       </section>
 
+      <section className="section container insurance-section">
+        <h2 className="section-title">{c.insurancesTitle}</h2>
+        <p className="section-subtitle">{c.insurancesIntro}</p>
+        <div className="insurance-grid">
+          {c.insurances.map((insurance) => (
+            <article className="insurance-card" key={insurance.name}>
+              {insurance.logo ? (
+                <img
+                  className="insurance-logo"
+                  src={insurance.logo}
+                  alt={`${insurance.name} logo`}
+                  loading="lazy"
+                  onError={(event) => {
+                    event.currentTarget.style.display = 'none';
+                  }}
+                />
+              ) : null}
+              <p>{insurance.name}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="history-band">
         <div className="container history-inner">
           <div className="history-text">

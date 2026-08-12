@@ -96,8 +96,6 @@ const initialForm = {
   consent: false,
 };
 
-const WHATSAPP_CONTACT = '237677609056';
-
 function buildWhatsAppMessage(lang, form, localizedServices, preferredPeriods) {
   const selectedService = localizedServices.find((service) => service.id === form.service);
   const selectedPeriod = preferredPeriods.find((period) => period.id === form.period);
@@ -165,7 +163,8 @@ export default function RendezVous() {
     setSubmitted(true);
 
     const message = buildWhatsAppMessage(lang, form, localizedServices, preferredPeriods);
-    const url = `https://wa.me/${WHATSAPP_CONTACT}?text=${encodeURIComponent(message)}`;
+    const whatsappTarget = c.appointmentPhoneRaw.replace(/[+\s]/g, '');
+    const url = `https://wa.me/${whatsappTarget}?text=${encodeURIComponent(message)}`;
 
     const opened = window.open(url, '_blank', 'noopener,noreferrer');
     if (!opened) {

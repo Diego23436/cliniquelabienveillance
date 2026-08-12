@@ -1,3 +1,5 @@
+import { directContact } from '../../../content/clinicContacts';
+
 // Local bilingual content for the FAQ page.
 
 export const categories = [
@@ -203,16 +205,16 @@ export const quickCards = [
   {
     id: 'call',
     icon: 'phone',
-    href: 'tel:+237677609056',
+    href: `tel:${directContact.tel}`,
     fr: {
       title: 'Appeler l’accueil',
       body: 'Pour confirmer un horaire, une disponibilité ou un service.',
-      action: '+237 677 60 90 56',
+      action: directContact.display,
     },
     en: {
       title: 'Call the front desk',
       body: 'To confirm hours, availability, or a service.',
-      action: '+237 677 60 90 56',
+      action: directContact.display,
     },
   },
   {
@@ -232,7 +234,7 @@ export const quickCards = [
   {
     id: 'question',
     icon: 'chat',
-    href: 'https://wa.me/237677609056',
+    href: `https://wa.me/${directContact.wa}`,
     fr: {
       title: 'Question rapide',
       body: 'Envoyez un message si vous avez besoin d’une précision.',
