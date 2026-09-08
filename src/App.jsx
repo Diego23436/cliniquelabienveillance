@@ -14,6 +14,7 @@ import Temoignages from './pages/Temoignages/Temoignages';
 import Galerie from './pages/Galerie/Galerie';
 import RendezVous from './pages/Contact/RendezVous/RendezVous';
 import Coordonnees from './pages/Contact/Coordonnees/Coordonnees';
+import Admin from './pages/Admin/Admin';
 import SeoManager from './components/Seo/SeoManager';
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
         <SeoManager />
         <Routes>
           <Route path="/" element={<Accueil />} />
+          <Route path="/admin" element={<Admin />} />
 
           <Route path="/a-propos/clinique" element={<Clinique />} />
           <Route path="/a-propos/equipe" element={<Equipe />} />

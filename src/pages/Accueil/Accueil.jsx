@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageShell from '../../components/PageShell/PageShell';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { content } from './accueil.content';
+import Announcements from '../../components/Announcements/Announcements';
 import './Accueil.css';
 
 const HERO_IMAGE = '/home-banner.png';
@@ -53,6 +54,8 @@ export default function Accueil() {
           ))}
         </div>
       </div>
+
+      <Announcements />
 
       <section className="section container">
         <div className="intro">

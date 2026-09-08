@@ -76,3 +76,37 @@ fiche Google de la clinique) mais doivent être vérifiées/complétées :
 Le bouton de langue est dans la barre de navigation (pastille bleue, coin
 supérieur droit). Il bascule tout le site FR ⇄ EN instantanément et retient
 le choix du visiteur (localStorage).
+
+## Gestion du contenu et déploiement Cloudflare
+
+La page d'accueil contient maintenant un carrousel d'actualités avec un mode
+de secours local. Les quatre photos `public/event1.jpg` à `public/event4.jpg`
+s'affichent immédiatement. Une fois D1 activé, le carrousel utilise les
+événements publiés par l'API.
+
+Le dossier `functions/` contient les Pages Functions et `migrations/` contient
+le schéma D1. Le panneau `/admin` est volontairement inutilisable tant que
+Cloudflare Access, D1 et R2 ne sont pas configurés.
+
+### Ce qu'il reste à faire dans Cloudflare, dans l'ordre
+
+1. Créer une base D1 : `npx wrangler d1 create clinique-content`.
+2. Copier `wrangler.toml.example` vers `wrangler.toml` et remplacer l'identifiant D1.
+3. Appliquer la migration : `npx wrangler d1 migrations apply clinique-content --remote`.
+4. Créer le bucket R2 : `npx wrangler r2 bucket create clinique-media`.
+5. Dans le projet Pages, ouvrir Settings > Functions > Bindings et ajouter les bindings `DB` (D1) et `BUCKET` (R2), puis redéployer.
+6. Dans Pages > Settings > Environment variables, ajouter `ADMIN_API_ENABLED=true`.
+7. Activer Cloudflare Access avec One-time PIN et créer une application Self-hosted pour le chemin `/admin*` ainsi qu'une seconde règle pour `/api/admin*`. Autoriser uniquement l'adresse email du gérant.
+8. Ajouter les variables `CF_ACCESS_TEAM_DOMAIN`, `CF_ACCESS_AUDIENCE` et, recommandé, `CF_ACCESS_ALLOWED_EMAIL` dans l'environnement Pages.
+9. Si les vidéos sont nécessaires, activer Cloudflare Stream et ajouter le binding Stream dans Pages. Le téléchargement vidéo devra utiliser une URL temporaire Stream, jamais un token dans React.
+10. Déployer via Git ou `npx wrangler pages deploy dist --project-name <nom-du-projet>` après un `npm run build`.
+
+Les routes publiques sont `GET /api/events` et les routes de gestion sont
+`/api/admin/events`, `/api/admin/announcements`, `/api/admin/team`,
+`/api/admin/gallery` et `/api/admin/contacts`. Les images R2 sont servies par
+`/media/*`.
+
+Le plan gratuit doit être confirmé dans le tableau de bord Cloudflare avant
+d'activation, notamment pour les limites D1, R2, Stream et les utilisateurs
+Access. Ne publiez pas l'API admin avec `ADMIN_API_ENABLED=true` avant d'avoir
+créé les règles Access correspondantes.

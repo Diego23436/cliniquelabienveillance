@@ -2,8 +2,8 @@
 // page only — owned by this page's developer.
 //
 // NOTE: category illustration images are expected at:
-//   /public/prevention/{category.id}.png
-// (e.g. /public/prevention/cardio-screening.png). Drop the clinic's real
+//   /prevention/{category.id}.png
+// (e.g. /prevention/cardio-screening.png). Drop the clinic's real
 // illustrations there using the same file names as the ids below — nothing
 // else needs to change. Until then the <img> fails gracefully behind the
 // icon badge, same convention as the Pathologies page.

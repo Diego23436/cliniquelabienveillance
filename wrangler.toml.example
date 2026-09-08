@@ -1,0 +1,17 @@
+name = "clinique-la-bienveillance-pages"
+compatibility_date = "2026-09-08"
+pages_build_output_dir = "dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "clinique-content"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+migrations_dir = "migrations"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "clinique-media"
+
+# Add a Stream binding from the Pages dashboard when Stream is enabled.
+# The Pages Function creates one-time upload URLs so the Stream token never
+# reaches the browser.

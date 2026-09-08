@@ -5,7 +5,7 @@ import { useLanguage } from '../../../i18n/LanguageContext';
 import { content, categories, lifeStages, benefits, process as careProcess } from './prevention.content';
 import './Prevention.css';
 
-const HERO_IMAGE = '/public/prevention-banner.png';
+const HERO_IMAGE = '/prevention-banner.png';
 
 // ---------------------------------------------------------------------------
 // Icon set — small hand-drawn line icons (24x24, stroke = currentColor), same
@@ -185,7 +185,7 @@ export default function Prevention() {
               <div className="category-media">
                 <img
                   className="category-image"
-                  src={`/public/prevention/${cat.id}.png`}
+                  src={`/prevention/${cat.id}.png`}
                   alt={cat[lang].title}
                   loading="lazy"
                   onError={(e) => {
