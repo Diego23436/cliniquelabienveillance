@@ -69,8 +69,8 @@ export default function Admin() {
       const data = await getAdminResource(resource);
       setRecords(data.items ?? []);
       setStatus('');
-    } catch {
-    setStatus('The admin API is not connected yet. Configure Pages Functions and Access, then reload.');
+    } catch (error) {
+      setStatus(error.message || 'The admin API is not connected yet. Configure Pages Functions and Access, then reload.');
     } finally {
       setLoading(false);
     }
@@ -112,8 +112,8 @@ export default function Admin() {
         : await uploadFile(file);
       setForm((current) => ({ ...current, ...(result.url ? { [field]: result.url } : result) }));
       setStatus('Upload complete. Save the record to publish it.');
-    } catch {
-      setStatus('Upload failed. Check the R2 binding and try again.');
+    } catch (error) {
+      setStatus(error.message || 'Upload failed. Check the R2 binding and try again.');
     }
   }
 
@@ -127,15 +127,15 @@ export default function Admin() {
       setEditingId(null);
       await loadRecords();
       setStatus('Saved successfully.');
-    } catch {
-      setStatus('Save failed. Check the API connection and required fields.');
+    } catch (error) {
+      setStatus(error.message || 'Save failed. Check the API connection and required fields.');
     }
   }
 
   async function handleDelete(id) {
     if (!window.confirm('Delete this item?')) return;
     try { await deleteAdminResource(resource, id); await loadRecords(); setStatus('Deleted.'); }
-    catch { setStatus('Delete failed.'); }
+    catch (error) { setStatus(error.message || 'Delete failed.'); }
   }
 
   if (access === 'checking') {

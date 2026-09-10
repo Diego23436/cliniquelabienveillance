@@ -11,7 +11,14 @@ async function request(path, options = {}) {
   });
 
   if (!response.ok) {
-    throw new Error(`Content API request failed (${response.status})`);
+    let message = `Content API request failed (${response.status}).`;
+    try {
+      const data = await response.json();
+      if (data?.error) message = data.error;
+    } catch {
+      // Some Cloudflare errors return HTML rather than JSON.
+    }
+    throw new Error(message);
   }
 
   return response.status === 204 ? null : response.json();
