@@ -21,6 +21,22 @@ export function getPublicEvents() {
   return request('/events');
 }
 
+export function getPublicAnnouncements() {
+  return request('/announcements');
+}
+
+export function getPublicTeam() {
+  return request('/team');
+}
+
+export function getPublicGallery() {
+  return request('/gallery');
+}
+
+export function getPublicContacts() {
+  return request('/contacts');
+}
+
 export function getAdminResource(resource) {
   return request(`/admin/${resource}`);
 }

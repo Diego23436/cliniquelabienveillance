@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageShell from '../../components/PageShell/PageShell';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { content, filters, mediaItems, highlights } from './galerie.content';
+import { getPublicGallery } from '../../lib/api';
 import './Galerie.css';
 
 const HERO_IMAGE = '/team-hero.png';
@@ -100,6 +101,18 @@ function MediaVisual({ item, className, loading = 'lazy', preview = false, varia
     );
   }
 
+  if (item.type === 'video' && item.video_id && variant === 'lightbox') {
+    return (
+      <iframe
+        className={className}
+        src={`https://iframe.videodelivery.net/${item.video_id}`}
+        title={item.title}
+        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+        allowFullScreen
+      />
+    );
+  }
+
   return <img className={className} src={item.src} alt={item.alt} loading={loading} />;
 }
 
@@ -108,10 +121,37 @@ export default function Galerie() {
   const c = content[lang];
   const [activeFilter, setActiveFilter] = useState('all');
   const [activeItemId, setActiveItemId] = useState(null);
+  const [remoteMedia, setRemoteMedia] = useState(null);
+
+  useEffect(() => {
+    let mounted = true;
+    getPublicGallery()
+      .then((data) => {
+        if (mounted && data?.configured && Array.isArray(data.items)) setRemoteMedia(data.items);
+      })
+      .catch(() => undefined);
+    return () => { mounted = false; };
+  }, []);
 
   const localizedMedia = useMemo(
-    () => mediaItems.map((item) => ({ ...item, ...item[lang] })),
-    [lang]
+    () => {
+      const source = remoteMedia?.length
+        ? remoteMedia.map((item) => ({
+            ...item,
+            type: item.type === 'image' ? 'photo' : item.type,
+            category: item.category || 'clinic',
+            src: item.image_url || '',
+            poster: item.poster_url || '/home-banner.png',
+            size: 'standard',
+            typeLabel: lang === 'fr' ? (item.type === 'video' ? 'Vidéo' : 'Photo') : (item.type === 'video' ? 'Video' : 'Photo'),
+            title: item[`title_${lang}`] || item.title_fr || '',
+            alt: item[`title_${lang}`] || item.title_fr || '',
+            description: item[`description_${lang}`] || item.description_fr || '',
+          }))
+        : mediaItems;
+      return source.map((item) => ({ ...item, ...item[lang] }));
+    },
+    [lang, remoteMedia]
   );
 
   const featuredItem = localizedMedia.find((item) => item.featured);
@@ -327,7 +367,7 @@ export default function Galerie() {
             </button>
             <div className="gal-lightbox-media">
               <MediaVisual item={activeItem} className="gal-lightbox-image" variant="lightbox" preview={false} />
-              {activeItem.type === 'video' && isVideoFile(activeItem.src) && (
+              {activeItem.type === 'video' && (isVideoFile(activeItem.src) || activeItem.video_id) && (
                 <span className="gal-lightbox-play">
                   <Icon name="play" />
                 </span>

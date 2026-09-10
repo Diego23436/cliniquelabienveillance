@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageShell from '../../../components/PageShell/PageShell';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { content, departments } from './equipe.content';
+import { getPublicTeam } from '../../../lib/api';
 import './Equipe.css';
 
 const HERO_IMAGE = '/team-hero.png';
@@ -24,13 +25,15 @@ function MemberPhoto({ member }) {
           <small>Photo</small>
         </div>
       ) : null}
-      <img
-        className={`member-photo ${failed ? 'is-hidden' : ''}`}
-        src={member.photo}
-        alt={member.name}
-        loading="lazy"
-        onError={() => setFailed(true)}
-      />
+      {member.photo && !failed ? (
+        <img
+          className="member-photo"
+          src={member.photo}
+          alt={member.name}
+          loading="lazy"
+          onError={() => setFailed(true)}
+        />
+      ) : null}
     </div>
   );
 }
@@ -40,11 +43,35 @@ export default function Equipe() {
   const c = content[lang];
   const [activeDept, setActiveDept] = useState('all');
   const [filterOpen, setFilterOpen] = useState(false);
+  const [remoteMembers, setRemoteMembers] = useState(null);
+
+  React.useEffect(() => {
+    let mounted = true;
+    getPublicTeam()
+      .then((data) => {
+        if (!mounted || !data?.configured || !Array.isArray(data.items)) return;
+        setRemoteMembers(data.items);
+      })
+      .catch(() => undefined);
+    return () => { mounted = false; };
+  }, []);
+
+  const members = useMemo(() => {
+    if (!remoteMembers?.length) return c.members;
+    return remoteMembers.map((member) => ({
+      name: member.name,
+      dept: member.department || 'medecine',
+      photo: member.photo_url || '',
+      role: member[`role_${lang}`] || member.role_fr || '',
+      bio: member[`bio_${lang}`] || member.bio_fr || '',
+      whatsappLink: member.phone ? `https://wa.me/${String(member.phone).replace(/[^0-9]/g, '')}` : null,
+    }));
+  }, [c.members, lang, remoteMembers]);
 
   const filteredMembers = useMemo(() => {
-    if (activeDept === 'all') return c.members;
-    return c.members.filter((m) => m.dept === activeDept);
-  }, [activeDept, c.members]);
+    if (activeDept === 'all') return members;
+    return members.filter((m) => m.dept === activeDept);
+  }, [activeDept, members]);
 
   function selectDept(id) {
     setActiveDept(id);
@@ -125,14 +152,7 @@ export default function Equipe() {
               <p className="member-bio">{m.bio}</p>
 
               <div className="member-social">
-                <a
-                  href={m.whatsappLink}
-                  className="member-whatsapp-link"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  WhatsApp
-                </a>
+                {m.whatsappLink ? <a href={m.whatsappLink} className="member-whatsapp-link" target="_blank" rel="noreferrer">WhatsApp</a> : null}
               </div>
             </div>
           ))}

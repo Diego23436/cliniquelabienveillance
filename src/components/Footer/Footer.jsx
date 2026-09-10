@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../i18n/LanguageContext';
+import { getPublicContacts } from '../../lib/api';
 import './Footer.css';
 
 export default function Footer() {
   const { t } = useLanguage();
+  const { lang } = useLanguage();
+  const [contacts, setContacts] = useState(null);
   const year = new Date().getFullYear();
+
+  useEffect(() => {
+    let mounted = true;
+    getPublicContacts()
+      .then((data) => {
+        if (mounted && data?.configured && Array.isArray(data.items)) setContacts(data.items);
+      })
+      .catch(() => undefined);
+    return () => { mounted = false; };
+  }, []);
 
   const insuranceLogos = [
     { name: 'Royal Onyx Assurance', src: '/insurances/royal-onyx.png' },
@@ -41,16 +54,15 @@ export default function Footer() {
 
         <div className="footer-col">
           <h4>{t('footer.contact')}</h4>
-          <p>{t('footer.address1.label')}<br />
-            Ancienne gare routière, Dakar, Douala
-          </p>
-          <p>{t('footer.address2.label')}<br />
-            {t('footer.address2.value')}
-          </p>
-          <p>
-            Tél / Phone: <a href="tel:+237670103404">+237 670 103 404</a><br />
-            Urgences / Emergency: <a href="tel:+237693321684">+237 693 32 16 84</a>
-          </p>
+          {contacts ? contacts.filter((item) => (item.placement || '').split(',').includes('footer')).map((item) => (
+            <p key={item.id}><strong>{item[`label_${lang}`] || item.label_fr}</strong><br />
+              {item.href ? <a href={item.href}>{item.value}</a> : item.value}
+            </p>
+          )) : <>
+            <p>{t('footer.address1.label')}<br />Ancienne gare routière, Dakar, Douala</p>
+            <p>{t('footer.address2.label')}<br />{t('footer.address2.value')}</p>
+            <p>Tél / Phone: <a href="tel:+237670103404">+237 670 103 404</a><br />Urgences / Emergency: <a href="tel:+237693321684">+237 693 32 16 84</a></p>
+          </>}
         </div>
 
         <div className="footer-col">

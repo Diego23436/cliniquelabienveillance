@@ -12,6 +12,6 @@ migrations_dir = "migrations"
 binding = "BUCKET"
 bucket_name = "clinique-media"
 
-# Add a Stream binding from the Pages dashboard when Stream is enabled.
-# The Pages Function creates one-time upload URLs so the Stream token never
-# reaches the browser.
+# For video uploads, set CF_ACCOUNT_ID and CF_STREAM_API_TOKEN as Pages
+# secrets. The Pages Function creates one-time upload URLs so the Stream token
+# never reaches the browser.

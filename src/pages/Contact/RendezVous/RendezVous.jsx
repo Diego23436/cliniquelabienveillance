@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageShell from '../../../components/PageShell/PageShell';
 import { useLanguage } from '../../../i18n/LanguageContext';
 import { contactMethods, content, locations, preferredPeriods, services, steps } from './rendezvous.content';
+import { getPublicContacts } from '../../../lib/api';
 import './RendezVous.css';
 
 const HERO_IMAGE = '/service-banner.png';
@@ -133,6 +134,20 @@ export default function RendezVous() {
   const c = content[lang];
   const [form, setForm] = useState(initialForm);
   const [submitted, setSubmitted] = useState(false);
+  const [appointmentPhone, setAppointmentPhone] = useState(c.appointmentPhoneRaw);
+
+  useEffect(() => {
+    let active = true;
+    getPublicContacts()
+      .then(({ items, configured }) => {
+        if (!active || !configured) return;
+        const phone = items.find((item) => (item.placement || '').split(',').includes('appointments'));
+        if (phone?.value) setAppointmentPhone(phone.value.replace(/[^\d+]/g, ''));
+      })
+      .catch(() => {});
+
+    return () => { active = false; };
+  }, [c.appointmentPhoneRaw]);
 
   const localizedServices = useMemo(
     () => services.map((service) => ({ ...service, label: service[lang] })),
@@ -163,7 +178,7 @@ export default function RendezVous() {
     setSubmitted(true);
 
     const message = buildWhatsAppMessage(lang, form, localizedServices, preferredPeriods);
-    const whatsappTarget = c.appointmentPhoneRaw.replace(/[+\s]/g, '');
+    const whatsappTarget = appointmentPhone.replace(/[+\s]/g, '');
     const url = `https://wa.me/${whatsappTarget}?text=${encodeURIComponent(message)}`;
 
     const opened = window.open(url, '_blank', 'noopener,noreferrer');
@@ -191,9 +206,9 @@ export default function RendezVous() {
 
             <div className="rv-hero-actions">
               <a className="btn btn-primary" href="#rendezvous-form">{c.heroButton}</a>
-              <a className="rv-ghost-link" href={`tel:${c.appointmentPhoneRaw}`}>
+              <a className="rv-ghost-link" href={`tel:${appointmentPhone}`}>
                 <Icon name="phone" />
-                {c.appointmentPhone}
+                {appointmentPhone}
               </a>
             </div>
           </div>

@@ -4,8 +4,8 @@ const RESOURCES = {
   events: ['events', ['title_fr', 'title_en', 'description_fr', 'description_en', 'event_date', 'image_url', 'video_id', 'published', 'sort_order']],
   announcements: ['announcements', ['title_fr', 'title_en', 'description_fr', 'description_en', 'image_url', 'video_id', 'published', 'sort_order']],
   team: ['team', ['name', 'role_fr', 'role_en', 'bio_fr', 'bio_en', 'department', 'phone', 'photo_url', 'published', 'sort_order']],
-  gallery: ['gallery', ['title_fr', 'title_en', 'type', 'image_url', 'video_id', 'poster_url', 'published', 'sort_order']],
-  contacts: ['contacts', ['label_fr', 'label_en', 'value', 'href', 'published', 'sort_order']],
+  gallery: ['gallery', ['title_fr', 'title_en', 'type', 'category', 'image_url', 'video_id', 'poster_url', 'published', 'sort_order']],
+  contacts: ['contacts', ['label_fr', 'label_en', 'value', 'href', 'placement', 'published', 'sort_order']],
 };
 
 function jsonError(message, status = 400) { return Response.json({ error: message }, { status }); }

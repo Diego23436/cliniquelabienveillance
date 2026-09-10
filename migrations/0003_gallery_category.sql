@@ -1,0 +1,1 @@
+ALTER TABLE gallery ADD COLUMN category TEXT NOT NULL DEFAULT 'clinic';

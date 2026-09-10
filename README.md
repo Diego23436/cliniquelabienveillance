@@ -92,13 +92,13 @@ Cloudflare Access, D1 et R2 ne sont pas configurés.
 
 1. Créer une base D1 : `npx wrangler d1 create clinique-content`.
 2. Copier `wrangler.toml.example` vers `wrangler.toml` et remplacer l'identifiant D1.
-3. Appliquer la migration : `npx wrangler d1 migrations apply clinique-content --remote`.
+3. Appliquer les migrations `0001_content.sql` a `0006_update_contact_placements.sql` dans D1, dans cet ordre. Avec Wrangler : `npx wrangler d1 migrations apply clinique-content --remote`.
 4. Créer le bucket R2 : `npx wrangler r2 bucket create clinique-media`.
 5. Dans le projet Pages, ouvrir Settings > Functions > Bindings et ajouter les bindings `DB` (D1) et `BUCKET` (R2), puis redéployer.
 6. Dans Pages > Settings > Environment variables, ajouter `ADMIN_API_ENABLED=true`.
 7. Activer Cloudflare Access avec One-time PIN et créer une application Self-hosted pour le chemin `/admin*` ainsi qu'une seconde règle pour `/api/admin*`. Autoriser uniquement l'adresse email du gérant.
 8. Ajouter les variables `CF_ACCESS_TEAM_DOMAIN`, `CF_ACCESS_AUDIENCE` et, recommandé, `CF_ACCESS_ALLOWED_EMAIL` dans l'environnement Pages.
-9. Si les vidéos sont nécessaires, activer Cloudflare Stream et ajouter le binding Stream dans Pages. Le téléchargement vidéo devra utiliser une URL temporaire Stream, jamais un token dans React.
+9. Si les vidéos sont nécessaires, activer Cloudflare Stream, créer un API token limité à Stream Write, puis ajouter `CF_ACCOUNT_ID` et `CF_STREAM_API_TOKEN` comme secrets Pages. Le téléchargement utilise une URL temporaire Stream, jamais un token dans React.
 10. Déployer via Git ou `npx wrangler pages deploy dist --project-name <nom-du-projet>` après un `npm run build`.
 
 Les routes publiques sont `GET /api/events` et les routes de gestion sont

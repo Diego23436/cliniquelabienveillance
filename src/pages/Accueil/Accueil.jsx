@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageShell from '../../components/PageShell/PageShell';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { content } from './accueil.content';
 import Announcements from '../../components/Announcements/Announcements';
+import { getPublicContacts } from '../../lib/api';
 import './Accueil.css';
 
 const HERO_IMAGE = '/home-banner.png';
@@ -11,6 +12,19 @@ const HERO_IMAGE = '/home-banner.png';
 export default function Accueil() {
   const { lang } = useLanguage();
   const c = content[lang];
+  const [remotePhones, setRemotePhones] = useState(null);
+
+  useEffect(() => {
+    let active = true;
+    getPublicContacts()
+      .then(({ items, configured }) => {
+        if (!active || !configured) return;
+        setRemotePhones(items.filter((item) => (item.placement || '').split(',').includes('home_strip')));
+      })
+      .catch(() => {});
+
+    return () => { active = false; };
+  }, []);
 
   return (
     <PageShell>
@@ -43,9 +57,9 @@ export default function Accueil() {
               <span className="strip-label">{item.title}</span>
               <span className="strip-subtitle">{item.subtitle}</span>
               <div className="strip-phones">
-                {item.phones.map((phone) => (
-                  <a key={phone.tel} className="strip-phone" href={`tel:${phone.tel}`}>
-                    {phone.display}
+                {(remotePhones?.length ? remotePhones : item.phones).map((phone) => (
+                  <a key={phone.tel || phone.id} className="strip-phone" href={phone.href || `tel:${phone.tel}`}>
+                    {phone.display || phone.value}
                   </a>
                 ))}
               </div>

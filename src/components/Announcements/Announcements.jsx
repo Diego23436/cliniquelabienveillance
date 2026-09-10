@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../i18n/LanguageContext';
-import { getPublicEvents } from '../../lib/api';
+import { getPublicAnnouncements, getPublicEvents } from '../../lib/api';
 import { events as fallbackEvents } from './announcements.content';
 import './Announcements.css';
 
@@ -21,24 +21,25 @@ function localizeEvent(event, lang) {
 
 export default function Announcements() {
   const { lang } = useLanguage();
-  const [remoteEvents, setRemoteEvents] = useState(null);
+  const [remoteItems, setRemoteItems] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [touchStart, setTouchStart] = useState(null);
 
   useEffect(() => {
     let mounted = true;
-    getPublicEvents()
-      .then((data) => {
-        if (mounted && Array.isArray(data?.items) && data.items.length) setRemoteEvents(data.items);
+    Promise.all([getPublicEvents(), getPublicAnnouncements()])
+      .then(([eventData, announcementData]) => {
+        const items = [...(eventData?.items ?? []), ...(announcementData?.items ?? [])];
+        if (mounted && (eventData?.configured || announcementData?.configured)) setRemoteItems(items);
       })
       .catch(() => undefined);
     return () => { mounted = false; };
   }, []);
 
   const items = useMemo(
-    () => (remoteEvents?.length ? remoteEvents : fallbackEvents).map((event) => localizeEvent(event, lang)),
-    [lang, remoteEvents]
+    () => (remoteItems?.length ? remoteItems : fallbackEvents).map((event) => localizeEvent(event, lang)),
+    [lang, remoteItems]
   );
 
   useEffect(() => {
