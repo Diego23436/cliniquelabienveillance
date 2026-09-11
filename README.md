@@ -92,7 +92,7 @@ Cloudflare Access, D1 et R2 ne sont pas configurés.
 
 1. Créer une base D1 : `npx wrangler d1 create clinique-content`.
 2. Copier `wrangler.toml.example` vers `wrangler.toml` et remplacer l'identifiant D1.
-3. Appliquer les migrations `0001_content.sql` a `0006_update_contact_placements.sql` dans D1, dans cet ordre. Avec Wrangler : `npx wrangler d1 migrations apply clinique-content --remote`.
+3. Appliquer les migrations `0001_content.sql` a `0007_seed_existing_team.sql` dans D1, dans cet ordre. Avec Wrangler : `npx wrangler d1 migrations apply clinique-content --remote`.
 4. Créer le bucket R2 : `npx wrangler r2 bucket create clinique-media`.
 5. Dans le projet Pages, ouvrir Settings > Functions > Bindings et ajouter les bindings `DB` (D1) et `BUCKET` (R2), puis redéployer.
 6. Dans Pages > Settings > Environment variables, ajouter `ADMIN_API_ENABLED=true`.
