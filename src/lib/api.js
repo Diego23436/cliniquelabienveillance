@@ -11,7 +11,7 @@ async function request(path, options = {}) {
   });
 
   if (!response.ok) {
-    let message = `Content API request failed (${response.status}).`;
+    let message = `Échec de la requête vers l’API de contenu (${response.status}).`;
     try {
       const data = await response.json();
       if (data?.error) message = data.error;
@@ -87,7 +87,7 @@ export async function uploadVideo(file) {
   const body = new FormData();
   body.append('file', file);
   const response = await fetch(upload.uploadURL, { method: 'POST', body });
-  if (!response.ok) throw new Error(`Video upload failed (${response.status})`);
+  if (!response.ok) throw new Error(`Échec du téléversement de la vidéo (${response.status}).`);
   return { video_id: upload.uid };
 }
 

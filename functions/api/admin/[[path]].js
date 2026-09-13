@@ -11,8 +11,8 @@ const RESOURCES = {
 function jsonError(message, status = 400) { return Response.json({ error: message }, { status }); }
 
 function requireConfiguredAdmin(env) {
-  if (!env.DB) return jsonError('D1 is not configured for this Pages environment.', 503);
-  if (env.ADMIN_API_ENABLED !== 'true') return jsonError('Admin API is disabled until Cloudflare Access is configured.', 503);
+  if (!env.DB) return jsonError('D1 n’est pas configuré pour cet environnement Pages.', 503);
+  if (env.ADMIN_API_ENABLED !== 'true') return jsonError("L’API d’administration est désactivée tant que Cloudflare Access n’est pas configuré.", 503);
   return null;
 }
 
@@ -28,7 +28,7 @@ export async function onRequest(context) {
     const resourceName = path[0];
     const id = path[1];
     const resource = RESOURCES[resourceName];
-    if (!resource) return jsonError('Unknown content resource.', 404);
+    if (!resource) return jsonError('Ressource de contenu inconnue.', 404);
 
     const [table, fields] = resource;
     const db = context.env.DB;
@@ -49,7 +49,7 @@ export async function onRequest(context) {
       return Response.json({ id: recordId }, { status: 201 });
     }
 
-    if (!id) return jsonError('An item id is required.', 400);
+    if (!id) return jsonError('Un identifiant d’élément est requis.', 400);
 
     if (context.request.method === 'PUT') {
       const input = await context.request.json();
@@ -65,9 +65,9 @@ export async function onRequest(context) {
       return new Response(null, { status: 204 });
     }
 
-    return jsonError('Method not allowed.', 405);
+    return jsonError('Méthode non autorisée.', 405);
   } catch (error) {
     console.error('Admin content request failed.', error);
-    return jsonError('Admin database request failed. Confirm that the D1 binding uses the migrated clinique-content database.', 503);
+    return jsonError('Échec de la requête vers la base de données. Vérifiez que la liaison D1 utilise la base clinique-content migrée.', 503);
   }
 }
